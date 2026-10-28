@@ -1,0 +1,94 @@
+name: Build and Deploy IG
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out repo
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js (latest version)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: npm
+
+      # 3. Install Sushi globally
+      - name: Install Sushi
+        run: npm install -g fsh-sushi
+
+      # 4. Install IG dependencies (e.g., AU Core) from package.json
+      - name: Install IG dependencies
+        run: npm ci
+
+      # 5. Get latest IG Publisher version
+      - name: Get latest IG Publisher version
+        id: ig-publisher-version
+        run: |
+          LATEST_TAG=$(curl -sL -o /dev/null -w '%{url_effective}' https://github.com/HL7/fhir-ig-publisher/releases/latest | sed 's#.*/tag/##')
+          echo "tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
+
+      # 6. Cache IG Publisher
+      - name: Cache IG Publisher
+        id: cache-publisher
+        uses: actions/cache@v4
+        with:
+          path: ./publisher.jar
+          key: publisher-${{ steps.ig-publisher-version.outputs.tag }}        
+
+      # 7. Download publisher.jar if not cached
+      - name: Download IG Publisher
+        if: steps.cache-publisher.outputs.cache-hit != 'true'
+        run: |
+          curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o publisher.jar
+
+      # 8. Run Sushi
+      - name: Run Sushi
+        run: |
+          set -euxo pipefail
+          sushi . -l debug
+
+      # 9. Install Ruby and Jekyll for IG rendering
+      - name: Install Ruby and Jekyll
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby-full build-essential zlib1g-dev
+          sudo gem install jekyll bundler
+
+      # 10. Check Sushi output
+      - name: Check Sushi output
+        run: |
+          ls -R fsh-generated || (echo "Sushi did not generate output!" && exit 1)
+          
+      # 11. Run IG Publisher
+      - name: Run IG Publisher
+        run: |
+          set -euxo pipefail
+          java -Xmx4g -jar publisher.jar -ig ig.ini -tx https://tx.fhir.org | tee publisher.log
+      # run: java -jar publisher.jar -ig ig.ini
+
+      # 12. Upload IG Publisher log
+      - name: Upload IG Publisher log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publisher-log
+          path: publisher.log
+
+      # 13. Deploy to gh-pages branch setting the CNAME to core.fhir.health.gov.fj
+      - name: Deploy IG to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          force_orphan: true
+

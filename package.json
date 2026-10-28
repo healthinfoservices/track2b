@@ -1,0 +1,8 @@
+{
+  "name": "efiq-track2b",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "fsh-sushi": "^3.0.0"
+  }
+}
