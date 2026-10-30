@@ -1,0 +1,53 @@
+{
+  "codeSystems" : [{
+    "url" : "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "AppointmentIdentifierType",
+    "title" : "Appointment Identifier Type",
+    "description" : "Identifier types used on SIU Appointments: filler (SCH-2) and placer (SCH-1) appointment IDs.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0203"]
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/appointmentstatus",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "AppointmentStatus",
+    "title" : "AppointmentStatus",
+    "description" : "The free/busy status of an appointment.",
+    "systems" : ["http://hl7.org/fhir/appointmentstatus"],
+    "oids" : ["2.16.840.1.113883.4.642.3.484"],
+    "sources" : ["2.16.840.1.113883.4.642.3.484"],
+    "uses" : {
+    },
+    "StructureDefinition-siu-au-appointment.html" : "SIU AU Appointment"
+  },
+  {
+    "url" : "http://terminology.hl7.org/ValueSet/appointment-cancellation-reason",
+    "version" : "1.0.1",
+    "status" : "active",
+    "name" : "AppointmentCancellationReason",
+    "title" : "Appointment cancellation reason",
+    "description" : "This example value set defines a set of reasons for the cancellation of an appointment.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"],
+    "oids" : ["2.16.840.1.113883.4.642.3.1381"],
+    "sources" : ["2.16.840.1.113883.4.642.3.1381"],
+    "uses" : {
+    },
+    "StructureDefinition-siu-au-appointment.html" : "SIU AU Appointment"
+  },
+  {
+    "url" : "http://terminology.hl7.org/ValueSet/v2-0276",
+    "version" : "3.0.0",
+    "status" : "active",
+    "name" : "Hl7VSAppointmentReasonCodes",
+    "title" : "hl7VS-appointmentReasonCodes",
+    "description" : "Value Set of codes that describe the kind of appointment or the reason why an appointment has been scheduled.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0276"],
+    "oids" : ["2.16.840.1.113883.21.181"],
+    "sources" : ["2.16.840.1.113883.21.181"],
+    "uses" : {
+    },
+    "StructureDefinition-siu-au-appointment.html" : "SIU AU Appointment"
+  }]
+}

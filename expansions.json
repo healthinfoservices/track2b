@@ -1,0 +1,68 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "50585272-1791-4c4e-8fdf-2d46c11f67e4",
+  "meta" : {
+    "lastUpdated" : "2026-10-30T02:04:31.332+00:00"
+  },
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html\">codesystem identifierType v5.0.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://terminology.hl7.org/CodeSystem/v2-0203|5.0.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 2 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://terminology.hl7.org/CodeSystem/v2-0203-FILL\"> </a><code>http://terminology.hl7.org/CodeSystem/v2-0203</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html#v2-0203-FILL\">FILL</a></td><td>Filler Identifier</td><td>An identifier for a request where the identifier is issued by the person, or service, that produces the observations or fulfills the request.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;, &quot;version&quot;: &quot;5.0.0&quot;, &quot;code&quot;: &quot;FILL&quot;, &quot;display&quot;: &quot;Filler Identifier&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;&lt;version value=&quot;5.0.0&quot;/&gt;&lt;code value=&quot;FILL&quot;/&gt;&lt;display value=&quot;Filler Identifier&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://terminology.hl7.org/CodeSystem/v2-0203-PLAC\"> </a><code>http://terminology.hl7.org/CodeSystem/v2-0203</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html#v2-0203-PLAC\">PLAC</a></td><td>Placer Identifier</td><td>An identifier for a request where the identifier is issued by the person or service making the request.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;, &quot;version&quot;: &quot;5.0.0&quot;, &quot;code&quot;: &quot;PLAC&quot;, &quot;display&quot;: &quot;Placer Identifier&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;&lt;version value=&quot;5.0.0&quot;/&gt;&lt;code value=&quot;PLAC&quot;/&gt;&lt;display value=&quot;Placer Identifier&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type",
+      "version" : "0.1.0",
+      "name" : "AppointmentIdentifierType",
+      "title" : "Appointment Identifier Type",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-10-30T02:04:31+00:00",
+      "jurisdiction" : [{
+        "coding" : [{
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "AU",
+          "display" : "Australia"
+        }]
+      }],
+      "expansion" : {
+        "identifier" : "urn:uuid:21da4673-f5fb-4125-88f4-dc6cb590fcc4",
+        "timestamp" : "2026-10-30T02:05:28+00:00",
+        "total" : 2,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://terminology.hl7.org/CodeSystem/v2-0203|5.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "code" : "FILL",
+          "display" : "Filler Identifier"
+        },
+        {
+          "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "code" : "PLAC",
+          "display" : "Placer Identifier"
+        }]
+      }
+    }
+  }]
+}

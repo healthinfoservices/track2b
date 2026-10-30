@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="HL70278ToAppointmentStatus"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConceptMap HL70278ToAppointmentStatus</b></p><a name="HL70278ToAppointmentStatus"> </a><a name="hcHL70278ToAppointmentStatus"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <a href="http://terminology.hl7.org/7.5.0/CodeSystem-v2-0278.html">fillerStatus</a> to <a href="http://hl7.org/fhir/R4/codesystem-appointmentstatus.html">AppointmentStatus</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>Pending</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>pending</td><td/></tr><tr><td>Waitlist</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>waitlist (Waitlisted)</td><td/></tr><tr><td>Booked</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>booked</td><td/></tr><tr><td>Started</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact" title="inexact">maps loosely to</a></td><td>arrived</td><td>Judgement call: the patient has arrived and the appointment has started.</td></tr><tr><td>Complete</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>fulfilled</td><td/></tr><tr><td>Cancelled</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>cancelled</td><td/></tr><tr><td>Discontinued</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider" title="wider">maps to wider concept</a></td><td>cancelled</td><td>v2.3+ code. Discontinued is treated as cancelled; the HL7 v2-to-FHIR IG leaves it unmapped.</td></tr><tr><td>DC (Discontinued)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider" title="wider">maps to wider concept</a></td><td>cancelled</td><td>v2.9+ code for Discontinued; treated as cancelled.</td></tr><tr><td>Deleted</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact" title="inexact">maps loosely to</a></td><td>entered-in-error</td><td/></tr><tr><td>Blocked</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact" title="inexact">maps loosely to</a></td><td>booked</td><td>No FHIR equivalent; the time is held so it is treated as booked.</td></tr><tr><td>Overbook</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider" title="wider">maps to wider concept</a></td><td>booked</td><td/></tr><tr><td>Noshow</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>noshow</td><td/></tr></table></div>
+  </text>
+  <url value="http://example.org/fhir/siu2fhir-au/ConceptMap/HL70278ToAppointmentStatus"/>
+  <version value="0.1.0"/>
+  <name value="HL70278ToAppointmentStatus"/>
+  <title value="HL7 v2 Filler Status (0278) to FHIR AppointmentStatus"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-10-30T02:04:31+00:00"/>
+  <publisher value="SIU2FHIR PoC"/>
+  <description value="The mapping the ingestion service applies to SCH-25. Blocked, Overbook and Started have no exact FHIR equivalent."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="AU"/>
+      <display value="Australia"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <source value="http://terminology.hl7.org/CodeSystem/v2-0278"/>
+    <target value="http://hl7.org/fhir/appointmentstatus"/>
+    <element>
+      <code value="Pending"/>
+      <target>
+        <code value="pending"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="Waitlist"/>
+      <target>
+        <code value="waitlist"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="Booked"/>
+      <target>
+        <code value="booked"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="Started"/>
+      <target>
+        <code value="arrived"/>
+        <equivalence value="inexact"/>
+        <comment value="Judgement call: the patient has arrived and the appointment has started."/>
+      </target>
+    </element>
+    <element>
+      <code value="Complete"/>
+      <target>
+        <code value="fulfilled"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="Cancelled"/>
+      <target>
+        <code value="cancelled"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="Discontinued"/>
+      <target>
+        <code value="cancelled"/>
+        <equivalence value="wider"/>
+        <comment value="v2.3+ code. Discontinued is treated as cancelled; the HL7 v2-to-FHIR IG leaves it unmapped."/>
+      </target>
+    </element>
+    <element>
+      <code value="DC"/>
+      <target>
+        <code value="cancelled"/>
+        <equivalence value="wider"/>
+        <comment value="v2.9+ code for Discontinued; treated as cancelled."/>
+      </target>
+    </element>
+    <element>
+      <code value="Deleted"/>
+      <target>
+        <code value="entered-in-error"/>
+        <equivalence value="inexact"/>
+      </target>
+    </element>
+    <element>
+      <code value="Blocked"/>
+      <target>
+        <code value="booked"/>
+        <equivalence value="inexact"/>
+        <comment value="No FHIR equivalent; the time is held so it is treated as booked."/>
+      </target>
+    </element>
+    <element>
+      <code value="Overbook"/>
+      <target>
+        <code value="booked"/>
+        <equivalence value="wider"/>
+      </target>
+    </element>
+    <element>
+      <code value="Noshow"/>
+      <target>
+        <code value="noshow"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

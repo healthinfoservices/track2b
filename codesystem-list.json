@@ -1,0 +1,10 @@
+{
+  "codeSystems" : [{
+    "url" : "http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "SIU2FHIRTag",
+    "title" : "SIU2FHIR Resource Tags",
+    "description" : "Tags (meta.tag) the ingestion service puts on resources it creates."
+  }]
+}

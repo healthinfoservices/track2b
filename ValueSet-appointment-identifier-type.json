@@ -1,0 +1,36 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "appointment-identifier-type",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet appointment-identifier-type</b></p><a name=\"appointment-identifier-type\"> </a><a name=\"hcappointment-identifier-type\"> </a><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html\"><code>http://terminology.hl7.org/CodeSystem/v2-0203</code></a><span title=\"Version is explicitly stated to be 5.0.0\"> version &#x1F4CD;5.0.0</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html#v2-0203-FILL\">FILL</a></td><td style=\"color: #cccccc\">Filler Identifier</td><td>An identifier for a request where the identifier is issued by the person, or service, that produces the observations or fulfills the request.</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html#v2-0203-PLAC\">PLAC</a></td><td style=\"color: #cccccc\">Placer Identifier</td><td>An identifier for a request where the identifier is issued by the person or service making the request.</td></tr></table></li></ul></div>"
+  },
+  "url" : "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type",
+  "version" : "0.1.0",
+  "name" : "AppointmentIdentifierType",
+  "title" : "Appointment Identifier Type",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-30T02:04:31+00:00",
+  "publisher" : "SIU2FHIR PoC",
+  "description" : "Identifier types used on SIU Appointments: filler (SCH-2) and placer (SCH-1) appointment IDs.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "AU",
+      "display" : "Australia"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+      "version" : "5.0.0",
+      "concept" : [{
+        "code" : "FILL"
+      },
+      {
+        "code" : "PLAC"
+      }]
+    }]
+  }
+}

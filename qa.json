@@ -1,0 +1,20 @@
+{
+  "url" : "http://example.org/fhir/siu2fhir-au/ImplementationGuide/example.fhir.siu2fhir.au",
+  "name" : "SIU2FHIRAUCore",
+  "title" : "HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept)",
+  "description" : "Describes how a proof-of-concept service converts HL7 v2 SIU S12, S13, S14 and S15 scheduling messages into FHIR R4 resources that conform to AU Core 2.0.0 (Patient, Practitioner, Location, Organization) plus an Appointment profile. Simulated data only; not for clinical use.",
+  "status" : "draft",
+  "package-id" : "example.fhir.siu2fhir.au",
+  "ig-ver" : "0.1.0",
+  "date" : "Fri, 30 Oct, 2026 02:04:31 +0000",
+  "dateISO8601" : "2026-10-30T02:04:31+00:00",
+  "errs" : 14,
+  "warnings" : 25,
+  "hints" : 8,
+  "broken-links" : 15,
+  "suppressed-hints" : 0,
+  "suppressed-warnings" : 0,
+  "version" : "4.0.1",
+  "tool" : "6.0.0-snapshot1 (3)",
+  "maxMemory" : 1136579896
+}

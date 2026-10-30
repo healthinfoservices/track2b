@@ -1,0 +1,44 @@
+# example.fhir.siu2fhir.au#0.1.0: HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept)
+
+## Pages
+
+* [Home](index.md)
+* [Architecture](architecture.md)
+* [Message Processing and Acknowledgements](messaging.md)
+* [Artifacts Summary](artifacts.md)
+* [Worked Example](lifecycle.md)
+* [AU Core Conformance](au-core.md)
+* [HL7 v2 to FHIR Mapping](mapping.md)
+* [Adapter Specification](adapter-specification.md)
+* [Local Registry](registry.md)
+* [Building This Guide](building.md)
+* [Facility Codes](facility-codes.md)
+* [Open Issues](open-issues.md)
+
+## Resources
+
+### CodeSystems
+
+* [SIU2FHIR Resource Tags](CodeSystem-siu2fhir-tag.md)
+
+### ValueSets
+
+* [Appointment Identifier Type](ValueSet-appointment-identifier-type.md)
+
+### Resource Profiles
+
+* [SIU AU Appointment](StructureDefinition-siu-au-appointment.md)
+
+### Extensions
+
+* [Source Message Control ID](StructureDefinition-source-message-control-id.md)
+* [Source Message Date/Time](StructureDefinition-source-message-datetime.md)
+
+### ConceptMaps
+
+* [HL7 v2 Administrative Sex (0001) to FHIR AdministrativeGender](ConceptMap-HL70001ToAdministrativeGender.md)
+* [HL7 v2 Filler Status (0278) to FHIR AppointmentStatus](ConceptMap-HL70278ToAppointmentStatus.md)
+
+### ImplementationGuides
+
+* [HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept)](index.md)

@@ -1,0 +1,56 @@
+[{
+  "id" : "siu2fhir-tag",
+  "type" : "CodeSystem",
+  "url" : "http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag",
+  "version" : "0.1.0",
+  "name" : "SIU2FHIRTag"
+},
+{
+  "id" : "HL70001ToAdministrativeGender",
+  "type" : "ConceptMap",
+  "url" : "http://example.org/fhir/siu2fhir-au/ConceptMap/HL70001ToAdministrativeGender",
+  "version" : "0.1.0",
+  "name" : "HL70001ToAdministrativeGender"
+},
+{
+  "id" : "HL70278ToAppointmentStatus",
+  "type" : "ConceptMap",
+  "url" : "http://example.org/fhir/siu2fhir-au/ConceptMap/HL70278ToAppointmentStatus",
+  "version" : "0.1.0",
+  "name" : "HL70278ToAppointmentStatus"
+},
+{
+  "id" : "example.fhir.siu2fhir.au",
+  "type" : "ImplementationGuide",
+  "url" : "http://example.org/fhir/siu2fhir-au/ImplementationGuide/example.fhir.siu2fhir.au",
+  "version" : "0.1.0",
+  "name" : "SIU2FHIRAUCore"
+},
+{
+  "id" : "siu-au-appointment",
+  "type" : "StructureDefinition",
+  "url" : "http://example.org/fhir/siu2fhir-au/StructureDefinition/siu-au-appointment",
+  "version" : "0.1.0",
+  "name" : "SIUAUAppointment"
+},
+{
+  "id" : "source-message-control-id",
+  "type" : "StructureDefinition",
+  "url" : "http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-control-id",
+  "version" : "0.1.0",
+  "name" : "SourceMessageControlId"
+},
+{
+  "id" : "source-message-datetime",
+  "type" : "StructureDefinition",
+  "url" : "http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-datetime",
+  "version" : "0.1.0",
+  "name" : "SourceMessageDateTime"
+},
+{
+  "id" : "appointment-identifier-type",
+  "type" : "ValueSet",
+  "url" : "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type",
+  "version" : "0.1.0",
+  "name" : "AppointmentIdentifierType"
+}]

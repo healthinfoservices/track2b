@@ -1,0 +1,49 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "siu2fhir-tag"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem siu2fhir-tag</b></p><a name=\"siu2fhir-tag\"> </a><a name=\"hcsiu2fhir-tag\"> </a><p>This case-sensitive code system <code>http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag</code> defines the following code:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">placeholder<a name=\"siu2fhir-tag-placeholder\"> </a></td><td>Placeholder</td><td>Created from an SIU message because no matching resource existed on the FHIR server. Expected to be curated (name, address, identifiers) by an administrator; the service never overwrites it.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "SIU2FHIRTag"] ;
+  fhir:CodeSystem.title [ fhir:value "SIU2FHIR Resource Tags"] ;
+  fhir:CodeSystem.status [ fhir:value "draft"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-10-30T02:04:31+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "SIU2FHIR PoC"] ;
+  fhir:CodeSystem.description [ fhir:value "Tags (meta.tag) the ingestion service puts on resources it creates."] ;
+  fhir:CodeSystem.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "AU" ] ;
+       fhir:Coding.display [ fhir:value "Australia" ]
+     ]
+  ] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "1"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "placeholder" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Placeholder" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Created from an SIU message because no matching resource existed on the FHIR server. Expected to be curated (name, address, identifiers) by an administrator; the service never overwrites it." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

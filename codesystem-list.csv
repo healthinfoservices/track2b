@@ -1,0 +1,2 @@
+URL,Version,Status,OIDs,Name,Title,Description,Used
+http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag,0.1.0,draft,,SIU2FHIRTag,SIU2FHIR Resource Tags,"Tags (meta.tag) the ingestion service puts on resources it creates.",

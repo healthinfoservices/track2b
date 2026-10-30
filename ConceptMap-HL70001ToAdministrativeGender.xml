@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="HL70001ToAdministrativeGender"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConceptMap HL70001ToAdministrativeGender</b></p><a name="HL70001ToAdministrativeGender"> </a><a name="hcHL70001ToAdministrativeGender"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <a href="http://terminology.hl7.org/7.5.0/CodeSystem-v2-0001.html">administrativeSex</a> to <a href="http://hl7.org/fhir/R4/codesystem-administrative-gender.html">AdministrativeGender</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>M (Male)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>male</td><td/></tr><tr><td>F (Female)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>female</td><td/></tr><tr><td>O (Other)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>other</td><td/></tr><tr><td>U (Unknown)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>unknown</td><td/></tr><tr><td>A (Ambiguous)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact" title="inexact">maps loosely to</a></td><td>other</td><td>Ambiguous mapped to other.</td></tr><tr><td>N (Not applicable)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact" title="inexact">maps loosely to</a></td><td>unknown</td><td>Not applicable mapped to unknown.</td></tr></table></div>
+  </text>
+  <url value="http://example.org/fhir/siu2fhir-au/ConceptMap/HL70001ToAdministrativeGender"/>
+  <version value="0.1.0"/>
+  <name value="HL70001ToAdministrativeGender"/>
+  <title value="HL7 v2 Administrative Sex (0001) to FHIR AdministrativeGender"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-10-30T02:04:31+00:00"/>
+  <publisher value="SIU2FHIR PoC"/>
+  <description value="The mapping the ingestion service applies to PID-8. The A and N mappings are judgement calls."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="AU"/>
+      <display value="Australia"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <source value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
+    <target value="http://hl7.org/fhir/administrative-gender"/>
+    <element>
+      <code value="M"/>
+      <target>
+        <code value="male"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="F"/>
+      <target>
+        <code value="female"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="O"/>
+      <target>
+        <code value="other"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="U"/>
+      <target>
+        <code value="unknown"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="A"/>
+      <target>
+        <code value="other"/>
+        <equivalence value="inexact"/>
+        <comment value="Ambiguous mapped to other."/>
+      </target>
+    </element>
+    <element>
+      <code value="N"/>
+      <target>
+        <code value="unknown"/>
+        <equivalence value="inexact"/>
+        <comment value="Not applicable mapped to unknown."/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

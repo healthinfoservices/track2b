@@ -1,0 +1,54 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "appointment-identifier-type"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet appointment-identifier-type</b></p><a name=\"appointment-identifier-type\"> </a><a name=\"hcappointment-identifier-type\"> </a><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html\"><code>http://terminology.hl7.org/CodeSystem/v2-0203</code></a><span title=\"Version is explicitly stated to be 5.0.0\"> version ?5.0.0</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html#v2-0203-FILL\">FILL</a></td><td style=\"color: #cccccc\">Filler Identifier</td><td>An identifier for a request where the identifier is issued by the person, or service, that produces the observations or fulfills the request.</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0203.html#v2-0203-PLAC\">PLAC</a></td><td style=\"color: #cccccc\">Placer Identifier</td><td>An identifier for a request where the identifier is issued by the person or service making the request.</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "AppointmentIdentifierType"] ;
+  fhir:ValueSet.title [ fhir:value "Appointment Identifier Type"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-10-30T02:04:31+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "SIU2FHIR PoC"] ;
+  fhir:ValueSet.description [ fhir:value "Identifier types used on SIU Appointments: filler (SCH-2) and placer (SCH-1) appointment IDs."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "AU" ] ;
+       fhir:Coding.display [ fhir:value "Australia" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+       fhir:ValueSet.compose.include.version [ fhir:value "5.0.0" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "FILL" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "PLAC" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

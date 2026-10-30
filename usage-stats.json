@@ -1,0 +1,72 @@
+{
+  "package": "example.fhir.siu2fhir.au",
+  "version": "0.1.0",
+  "fhirVersion": "4.0.1",
+  "jurisdiction": "AU",
+  "extensions": [
+    {
+      "url": "http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-control-id",
+      "title": "Source Message Control ID",
+      "types": [
+        "string"
+      ]
+    },
+    {
+      "url": "http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-datetime",
+      "title": "Source Message Date/Time",
+      "types": [
+        "dateTime"
+      ]
+    }
+  ],
+  "profiles": {
+    "Appointment": [
+      {
+        "url": "http://example.org/fhir/siu2fhir-au/StructureDefinition/siu-au-appointment",
+        "title": "SIU AU Appointment"
+      }
+    ]
+  },
+  "usage": {
+    "http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-control-id": [
+      "Appointment"
+    ],
+    "http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-datetime": [
+      "Appointment"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name": [
+      "ImplementationGuide.definition.page",
+      "ImplementationGuide.definition.page.page"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment": [
+      "ImplementationGuide.dependsOn"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/resource-information": [
+      "ImplementationGuide.definition.resource"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version": [
+      "StructureDefinition.snapshot"
+    ]
+  }
+}

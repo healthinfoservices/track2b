@@ -1,0 +1,87 @@
+{
+  "codeSystems" : [{
+    "url" : "http://hl7.org/fhir/administrative-gender",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "AdministrativeGender",
+    "title" : "AdministrativeGender",
+    "description" : "The gender of a person used for administrative purposes.",
+    "oids" : ["2.16.840.1.113883.4.642.4.2"],
+    "uses" : {
+    },
+    "ConceptMap-HL70001ToAdministrativeGender.html" : "HL7 v2 Administrative Sex (0001) to FHIR AdministrativeGender"
+  },
+  {
+    "url" : "http://hl7.org/fhir/appointmentstatus",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "AppointmentStatus",
+    "title" : "AppointmentStatus",
+    "description" : "The free/busy status of an appointment.",
+    "oids" : ["2.16.840.1.113883.4.642.4.485"],
+    "uses" : {
+    },
+    "ConceptMap-HL70278ToAppointmentStatus.html" : "HL7 v2 Filler Status (0278) to FHIR AppointmentStatus",
+    "http://hl7.org/fhir/R4/valueset-appointmentstatus.html" : "AppointmentStatus"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+    "version" : "2.1.1",
+    "status" : "active",
+    "name" : "AppointmentCancellationReason",
+    "title" : "Appointment cancellation reason",
+    "description" : "This example value set defines a set of reasons for the cancellation of an appointment.",
+    "oids" : ["2.16.840.1.113883.4.642.1.1382"],
+    "uses" : {
+    },
+    "http://terminology.hl7.org/7.5.0/ValueSet-appointment-cancellation-reason.html" : "Appointment cancellation reason"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v2-0001",
+    "version" : "3.0.0",
+    "status" : "active",
+    "name" : "AdministrativeSex",
+    "title" : "administrativeSex",
+    "description" : "Code system of concepts specifying a patient's sex for administrative purposes.  Used in HL7 Version 2.x messages in the PID segment.",
+    "oids" : ["2.16.840.1.113883.18.2"],
+    "uses" : {
+    },
+    "ConceptMap-HL70001ToAdministrativeGender.html" : "HL7 v2 Administrative Sex (0001) to FHIR AdministrativeGender"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "IdentifierType",
+    "title" : "identifierType",
+    "description" : "HL7-defined code system of concepts specifying type of identifier. Used in HL7 Version 2.x messaging data types CX, PLN, PPN, XCN and XON.",
+    "oids" : ["2.16.840.1.113883.18.108"],
+    "uses" : {
+    },
+    "ValueSet-appointment-identifier-type.html" : "Appointment Identifier Type"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v2-0276",
+    "version" : "3.0.0",
+    "status" : "active",
+    "name" : "AppointmentReason",
+    "title" : "appointmentReason",
+    "description" : "Code system of concepts used to describe the kind of appointment or the reason why an appointment has been scheduled.  Used in HL7 Version 2.x messaging in the ARQ segment.",
+    "oids" : ["2.16.840.1.113883.18.169"],
+    "uses" : {
+    },
+    "http://terminology.hl7.org/7.5.0/ValueSet-v2-0276.html" : "hl7VS-appointmentReasonCodes"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v2-0278",
+    "version" : "3.0.0",
+    "status" : "active",
+    "name" : "FillerStatus",
+    "title" : "fillerStatus",
+    "description" : "Code system of concepts used to describe an appointment status from the perspective of the entity assigned to fulfill the appointment.  Used in HL7 Version 2.x messaging in the SCH segment.",
+    "oids" : ["2.16.840.1.113883.18.171"],
+    "uses" : {
+    },
+    "ConceptMap-HL70278ToAppointmentStatus.html" : "HL7 v2 Filler Status (0278) to FHIR AppointmentStatus"
+  }]
+}

@@ -1,0 +1,116 @@
+{
+  "resourceType" : "ConceptMap",
+  "id" : "HL70278ToAppointmentStatus",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConceptMap HL70278ToAppointmentStatus</b></p><a name=\"HL70278ToAppointmentStatus\"> </a><a name=\"hcHL70278ToAppointmentStatus\"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0278.html\">fillerStatus</a> to <a href=\"http://hl7.org/fhir/R4/codesystem-appointmentstatus.html\">AppointmentStatus</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>Pending</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>pending</td><td/></tr><tr><td>Waitlist</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>waitlist (Waitlisted)</td><td/></tr><tr><td>Booked</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>booked</td><td/></tr><tr><td>Started</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact\" title=\"inexact\">maps loosely to</a></td><td>arrived</td><td>Judgement call: the patient has arrived and the appointment has started.</td></tr><tr><td>Complete</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>fulfilled</td><td/></tr><tr><td>Cancelled</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>cancelled</td><td/></tr><tr><td>Discontinued</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider\" title=\"wider\">maps to wider concept</a></td><td>cancelled</td><td>v2.3+ code. Discontinued is treated as cancelled; the HL7 v2-to-FHIR IG leaves it unmapped.</td></tr><tr><td>DC (Discontinued)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider\" title=\"wider\">maps to wider concept</a></td><td>cancelled</td><td>v2.9+ code for Discontinued; treated as cancelled.</td></tr><tr><td>Deleted</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact\" title=\"inexact\">maps loosely to</a></td><td>entered-in-error</td><td/></tr><tr><td>Blocked</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-inexact\" title=\"inexact\">maps loosely to</a></td><td>booked</td><td>No FHIR equivalent; the time is held so it is treated as booked.</td></tr><tr><td>Overbook</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider\" title=\"wider\">maps to wider concept</a></td><td>booked</td><td/></tr><tr><td>Noshow</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>noshow</td><td/></tr></table></div>"
+  },
+  "url" : "http://example.org/fhir/siu2fhir-au/ConceptMap/HL70278ToAppointmentStatus",
+  "version" : "0.1.0",
+  "name" : "HL70278ToAppointmentStatus",
+  "title" : "HL7 v2 Filler Status (0278) to FHIR AppointmentStatus",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-30T02:04:31+00:00",
+  "publisher" : "SIU2FHIR PoC",
+  "description" : "The mapping the ingestion service applies to SCH-25. Blocked, Overbook and Started have no exact FHIR equivalent.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "AU",
+      "display" : "Australia"
+    }]
+  }],
+  "group" : [{
+    "source" : "http://terminology.hl7.org/CodeSystem/v2-0278",
+    "target" : "http://hl7.org/fhir/appointmentstatus",
+    "element" : [{
+      "code" : "Pending",
+      "target" : [{
+        "code" : "pending",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Waitlist",
+      "target" : [{
+        "code" : "waitlist",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Booked",
+      "target" : [{
+        "code" : "booked",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Started",
+      "target" : [{
+        "code" : "arrived",
+        "equivalence" : "inexact",
+        "comment" : "Judgement call: the patient has arrived and the appointment has started."
+      }]
+    },
+    {
+      "code" : "Complete",
+      "target" : [{
+        "code" : "fulfilled",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Cancelled",
+      "target" : [{
+        "code" : "cancelled",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Discontinued",
+      "target" : [{
+        "code" : "cancelled",
+        "equivalence" : "wider",
+        "comment" : "v2.3+ code. Discontinued is treated as cancelled; the HL7 v2-to-FHIR IG leaves it unmapped."
+      }]
+    },
+    {
+      "code" : "DC",
+      "target" : [{
+        "code" : "cancelled",
+        "equivalence" : "wider",
+        "comment" : "v2.9+ code for Discontinued; treated as cancelled."
+      }]
+    },
+    {
+      "code" : "Deleted",
+      "target" : [{
+        "code" : "entered-in-error",
+        "equivalence" : "inexact"
+      }]
+    },
+    {
+      "code" : "Blocked",
+      "target" : [{
+        "code" : "booked",
+        "equivalence" : "inexact",
+        "comment" : "No FHIR equivalent; the time is held so it is treated as booked."
+      }]
+    },
+    {
+      "code" : "Overbook",
+      "target" : [{
+        "code" : "booked",
+        "equivalence" : "wider"
+      }]
+    },
+    {
+      "code" : "Noshow",
+      "target" : [{
+        "code" : "noshow",
+        "equivalence" : "equivalent"
+      }]
+    }]
+  }]
+}

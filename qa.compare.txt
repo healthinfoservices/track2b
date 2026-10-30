@@ -1,0 +1,106 @@
+SIU2FHIRAUCore : Validation Results
+=========================================
+
+err = 14, warn = 25, info = 8, broken links = 15
+$--
+Generated $--. FHIR version $-- for example.fhir.siu2fhir.au#$-- (canonical = http://example.org/fhir/siu2fhir-au)
+ Build Errors : 28 / 11 / 0
+ /home/runner/work/track2b/track2b/fsh-generated/resources/CodeSystem-siu2fhir-tag : 0 / 1 / 1
+ /home/runner/work/track2b/track2b/fsh-generated/resources/ConceptMap-HL70001ToAdministrativeGender : 0 / 1 / 2
+ /home/runner/work/track2b/track2b/fsh-generated/resources/ConceptMap-HL70278ToAppointmentStatus : 1 / 4 / 2
+ /home/runner/work/track2b/track2b/fsh-generated/resources/ImplementationGuide-example.fhir.siu2fhir.au : 0 / 0 / 2
+ /home/runner/work/track2b/track2b/fsh-generated/resources/StructureDefinition-siu-au-appointment : 0 / 5 / 3
+ /home/runner/work/track2b/track2b/fsh-generated/resources/StructureDefinition-source-message-control-id : 0 / 1 / 2
+ /home/runner/work/track2b/track2b/fsh-generated/resources/StructureDefinition-source-message-datetime : 0 / 1 / 2
+ /home/runner/work/track2b/track2b/fsh-generated/resources/ValueSet-appointment-identifier-type : 0 / 1 / 2
+</table>
+
+== n/a ==
+ERROR: ImplementationGuide.definition.parameter[23].value: Supressed messages file not found
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The heading <h1> 'Track 2B: SIU to FHIR Appointment Adapter Specification' (id=track-2b-siu-to-fhir-appointment-adapter-specification) is at a higher level than the first heading on the page (<h2> 'Adapter Specification'). The first heading on a page must be its top level heading (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '1. Purpose and scope' (id=1-purpose-and-scope) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '2. Assumptions and preconditions' (id=2-assumptions-and-preconditions) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '3. Architecture overview' (id=3-architecture-overview) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '4. Functional requirements' (id=4-functional-requirements) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '5. Interfaces' (id=5-interfaces) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '6. Detailed mapping' (id=6-detailed-mapping) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '7. Code set mappings' (id=7-code-set-mappings) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '8. Error handling and acknowledgement codes' (id=8-error-handling-and-acknowledgement-codes) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '9. Test scenarios and conformance checklist' (id=9-test-scenarios-and-conformance-checklist) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/adapter-specification.html: The page has more than one top level heading: <h2> '10. Open questions and references' (id=10-open-questions-and-references) is at the same level as the first heading on the page (<h2> 'Adapter Specification'). A page must have exactly one top level heading, with every other heading beneath it (WCAG compliance test)
+ERROR: /home/runner/work/track2b/track2b/output/facility-codes.html: The heading <h1> 'Facility Codes' (id=facility-codes) is at a higher level than the first heading on the page (<h2> 'Facility Codes'). The first heading on a page must be its top level heading (WCAG compliance test)
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 205, column 8: The link 'Patient-patient-900001.html' for "Patient 900001" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 206, column 8: The link 'Practitioner-practitioner-8003619900004562.html' for "Practitioner Dr Jane SMITH" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 207, column 13: The link 'Organization-organization-simhosp.html' for "Organization Simulated Hospital" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 208, column 8: The link 'Location-location-simhosp-opd-clinic1.html' for "Location Outpatient Clinic 1" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 209, column 8: The link 'Appointment-appointment-fil2001-after-s12.html' for "Appointment FIL2001 (after S12)" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 223, column 5: The link 'Appointment-appointment-fil2001-after-s13.html' for "Appointment FIL2001 (after S13)" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 238, column 5: The link 'Appointment-appointment-fil2001-after-s14.html' for "Appointment FIL2001 (after S14)" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 238, column 186: The link 'Practitioner-practitioner-2426621b.html' for "Dr Raj JONES" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 251, column 5: The link 'Appointment-appointment-fil2001-after-s15.html' for "Appointment FIL2001 (after S15)" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 263, column 5: The link 'Appointment-appointment-fil2002.html' for "Appointment FIL2002" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 264, column 135: The link 'Organization-organization-satellite.html' for "Organization SATELLITE" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 264, column 296: The link 'Location-location-satellite-opd-physio1.html' for "Location Physio Room 1" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/p/a at Line 265, column 2: The link 'Patient-patient-900002.html' for "Patient 900002" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 278, column 8: The link 'Patient-patient-900003.html' for "Patient 900003" cannot be resolved
+ERROR: lifecycle.html#/html/body/div/div/div/div/div/ul/li/a at Line 279, column 65: The link 'Appointment-appointment-fil2003.html' for "Appointment FIL2003" cannot be resolved
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</a>" expecting "</img>" at line 34 column 177
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 79 column 10
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 80 column 9
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 109 column 8
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 111 column 12
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 112 column 20
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 113 column 16
+WARNING: /home/runner/work/track2b/track2b/output/searchform.html: The html source is not well formed: Found "</div>" expecting "</body>" at line 115 column 12
+WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+
+
+== fsh-generated/resources/CodeSystem-siu2fhir-tag.json ==
+WARNING: Resource: The resource CodeSystem/siu2fhir-tag should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+
+== fsh-generated/resources/ConceptMap-HL70001ToAdministrativeGender.json ==
+WARNING: ConceptMap/HL70001ToAdministrativeGender: ConceptMap.group[0]: There are multiple different potential matches for the url 'http://terminology.hl7.org/CodeSystem/v2-0001'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.2.0), 3.0.0 (from hl7.terminology.r4#7.0.1). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/CodeSystem/v2-0001' to 'http://terminology.hl7.org/CodeSystem/v2-0001|3.0.0'
+INFORMATION: Resource: The resource ConceptMap/HL70001ToAdministrativeGender could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+
+== fsh-generated/resources/ConceptMap-HL70278ToAppointmentStatus.json ==
+ERROR: ConceptMap/HL70278ToAppointmentStatus: ConceptMap.group[0].element[8].target[0]: Constraint failed: cmd-1: 'If the map is narrower or inexact, there SHALL be some comments (comment.exists() or equivalence.empty() or ((equivalence != 'narrower') and (equivalence != 'inexact')))'
+WARNING: ConceptMap/HL70278ToAppointmentStatus: ConceptMap.group[0]: There are multiple different potential matches for the url 'http://terminology.hl7.org/CodeSystem/v2-0278'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.2.0), 3.0.0 (from hl7.terminology.r4#7.0.1). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/CodeSystem/v2-0278' to 'http://terminology.hl7.org/CodeSystem/v2-0278|3.0.0'
+WARNING: ConceptMap/HL70278ToAppointmentStatus: ConceptMap.group[0].element[6].target[0]: The code Cancelled is mapped to cancelled as 'equivalent', and Discontinued is mapped to cancelled as 'source-is-narrower-than-target', which means that Cancelled should subsume Discontinued, but it does not
+WARNING: ConceptMap/HL70278ToAppointmentStatus: ConceptMap.group[0].element[7].target[0]: The code Cancelled is mapped to cancelled as 'equivalent', and DC is mapped to cancelled as 'source-is-narrower-than-target', which means that Cancelled should subsume DC, but it does not
+WARNING: ConceptMap/HL70278ToAppointmentStatus: ConceptMap.group[0].element[10].target[0]: The code Booked is mapped to booked as 'equivalent', and Overbook is mapped to booked as 'source-is-narrower-than-target', which means that Booked should subsume Overbook, but it does not
+INFORMATION: Resource: The resource ConceptMap/HL70278ToAppointmentStatus could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+
+== fsh-generated/resources/ImplementationGuide-example.fhir.siu2fhir.au.json ==
+INFORMATION: Resource: The resource ImplementationGuide/example.fhir.siu2fhir.au could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+
+== fsh-generated/resources/StructureDefinition-siu-au-appointment.json ==
+INFORMATION: StructureDefinition/siu-au-appointment: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.4.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+WARNING: StructureDefinition/siu-au-appointment: StructureDefinition.snapshot.element[13].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/appointment-cancellation-reason'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '1.0.1', found versions: 1.0.0 (from hl7.terminology#5.5.0), 1.0.1 (from hl7.terminology.r4#6.2.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/appointment-cancellation-reason' to 'http://terminology.hl7.org/ValueSet/appointment-cancellation-reason|1.0.1'
+WARNING: StructureDefinition/siu-au-appointment: StructureDefinition.snapshot.element[17].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v2-0276'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.2.0), 3.0.0 (from hl7.terminology.r4#7.5.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v2-0276' to 'http://terminology.hl7.org/ValueSet/v2-0276|3.0.0'
+WARNING: StructureDefinition/siu-au-appointment: StructureDefinition.differential.element[6].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/appointment-cancellation-reason'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '1.0.1', found versions: 1.0.0 (from hl7.terminology#5.5.0), 1.0.1 (from hl7.terminology.r4#6.2.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/appointment-cancellation-reason' to 'http://terminology.hl7.org/ValueSet/appointment-cancellation-reason|1.0.1'
+WARNING: StructureDefinition/siu-au-appointment: StructureDefinition.differential.element[8].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v2-0276'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#6.2.0), 3.0.0 (from hl7.terminology.r4#7.5.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v2-0276' to 'http://terminology.hl7.org/ValueSet/v2-0276|3.0.0'
+INFORMATION: Resource: The resource StructureDefinition/siu-au-appointment could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+WARNING: StructureDefinition.where(url = 'http://example.org/fhir/siu2fhir-au/StructureDefinition/siu-au-appointment'): The Implementation Guide contains no examples for this profile
+
+
+== fsh-generated/resources/StructureDefinition-source-message-control-id.json ==
+INFORMATION: Resource: The resource StructureDefinition/source-message-control-id could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+WARNING: StructureDefinition.where(url = 'http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-control-id'): The Implementation Guide contains no examples for this extension
+
+
+== fsh-generated/resources/StructureDefinition-source-message-datetime.json ==
+INFORMATION: Resource: The resource StructureDefinition/source-message-datetime could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+WARNING: StructureDefinition.where(url = 'http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-datetime'): The Implementation Guide contains no examples for this extension
+
+
+== fsh-generated/resources/ValueSet-appointment-identifier-type.json ==
+INFORMATION: ValueSet.compose.include[0]: Pinned the version of http://terminology.hl7.org/CodeSystem/v2-0203 to 5.0.0 from choices of 4.0.0 (hl7.terminology#5.5.0), 5.0.0 (hl7.terminology.r4#7.5.0)
+WARNING: Resource: The resource ValueSet/appointment-identifier-type should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+

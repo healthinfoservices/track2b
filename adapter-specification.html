@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Adapter Specification - HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  <img alt="Australia flag" src="assets/images/aus.svg" height="16" title="Australia"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="architecture.html">Architecture</a>
+  </li>
+  <li>
+    <a href="au-core.html">AU Core</a>
+  </li>
+  <li>
+    <a href="adapter-specification.html">Adapter Specification</a>
+  </li>
+  <li>
+    <a href="mapping.html">Mapping</a>
+  </li>
+  <li>
+    <a href="messaging.html">Processing</a>
+  </li>
+  <li>
+    <a href="lifecycle.html">Worked Example</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">More
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="architecture.html">Architecture</a>
+      </li>
+      <li>
+        <a href="registry.html">Local Registry</a>
+      </li>
+      <li>
+        <a href="building.html">Building This Guide</a>
+      </li>
+      <li>
+        <a href="open-issues.html">Open Issues</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Adapter Specification</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='http://example.org/fhir/siu2fhir-au/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Adapter Specification</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#track-2b-siu-to-fhir-appointment-adapter-specification" id="markdown-toc-track-2b-siu-to-fhir-appointment-adapter-specification">Track 2B: SIU to FHIR Appointment Adapter Specification</a>    <ul>
+      <li><a href="#1-purpose-and-scope" id="markdown-toc-1-purpose-and-scope">1. Purpose and scope</a></li>
+      <li><a href="#2-assumptions-and-preconditions" id="markdown-toc-2-assumptions-and-preconditions">2. Assumptions and preconditions</a></li>
+      <li><a href="#3-architecture-overview" id="markdown-toc-3-architecture-overview">3. Architecture overview</a></li>
+      <li><a href="#4-functional-requirements" id="markdown-toc-4-functional-requirements">4. Functional requirements</a></li>
+      <li><a href="#5-interfaces" id="markdown-toc-5-interfaces">5. Interfaces</a>        <ul>
+          <li><a href="#51-http-primary" id="markdown-toc-51-http-primary">5.1 HTTP (primary)</a></li>
+          <li><a href="#52-mllp-optional" id="markdown-toc-52-mllp-optional">5.2 MLLP (optional)</a></li>
+          <li><a href="#53-acknowledgement" id="markdown-toc-53-acknowledgement">5.3 Acknowledgement</a></li>
+          <li><a href="#54-fhir-rest-interactions" id="markdown-toc-54-fhir-rest-interactions">5.4 FHIR REST interactions</a></li>
+        </ul>
+      </li>
+      <li><a href="#6-detailed-mapping" id="markdown-toc-6-detailed-mapping">6. Detailed mapping</a>        <ul>
+          <li><a href="#61-conventions" id="markdown-toc-61-conventions">6.1 Conventions</a></li>
+          <li><a href="#62-appointment" id="markdown-toc-62-appointment">6.2 Appointment</a></li>
+          <li><a href="#63-appointment-status" id="markdown-toc-63-appointment-status">6.3 Appointment status</a></li>
+          <li><a href="#64-participants" id="markdown-toc-64-participants">6.4 Participants</a></li>
+          <li><a href="#65-patient-pid" id="markdown-toc-65-patient-pid">6.5 Patient (PID)</a></li>
+          <li><a href="#66-practitioner-aip-3" id="markdown-toc-66-practitioner-aip-3">6.6 Practitioner (AIP-3)</a></li>
+          <li><a href="#67-location-ail-3" id="markdown-toc-67-location-ail-3">6.7 Location (AIL-3)</a></li>
+          <li><a href="#68-organization-lookup-never-written" id="markdown-toc-68-organization-lookup-never-written">6.8 Organization (lookup, never written)</a></li>
+        </ul>
+      </li>
+      <li><a href="#7-code-set-mappings" id="markdown-toc-7-code-set-mappings">7. Code set mappings</a>        <ul>
+          <li><a href="#71-sch-25-filler-status-hl7-table-0278--appointmentstatus" id="markdown-toc-71-sch-25-filler-status-hl7-table-0278--appointmentstatus">7.1 SCH-25 filler status (HL7 table 0278) → Appointment.status</a></li>
+          <li><a href="#72-pid-8-administrative-sex-table-0001--patientgender" id="markdown-toc-72-pid-8-administrative-sex-table-0001--patientgender">7.2 PID-8 administrative sex (table 0001) → Patient.gender</a></li>
+          <li><a href="#73-aip-4--aig-4-role--participanttype" id="markdown-toc-73-aip-4--aig-4-role--participanttype">7.3 AIP-4 / AIG-4 role → participant.type</a></li>
+          <li><a href="#74-location-type-and-physical-type" id="markdown-toc-74-location-type-and-physical-type">7.4 Location type and physical type</a></li>
+          <li><a href="#75-pid-10--indigenous-status" id="markdown-toc-75-pid-10--indigenous-status">7.5 PID-10 → Indigenous status</a></li>
+          <li><a href="#76-national-identifiers-au-base-600" id="markdown-toc-76-national-identifiers-au-base-600">7.6 National identifiers (AU Base 6.0.0)</a></li>
+          <li><a href="#77-australian-address-normalisation-pid-11" id="markdown-toc-77-australian-address-normalisation-pid-11">7.7 Australian address normalisation (PID-11)</a></li>
+        </ul>
+      </li>
+      <li><a href="#8-error-handling-and-acknowledgement-codes" id="markdown-toc-8-error-handling-and-acknowledgement-codes">8. Error handling and acknowledgement codes</a></li>
+      <li><a href="#9-test-scenarios-and-conformance-checklist" id="markdown-toc-9-test-scenarios-and-conformance-checklist">9. Test scenarios and conformance checklist</a>        <ul>
+          <li><a href="#91-sample-messages" id="markdown-toc-91-sample-messages">9.1 Sample messages</a></li>
+          <li><a href="#92-expected-results" id="markdown-toc-92-expected-results">9.2 Expected results</a></li>
+          <li><a href="#93-conformance-checklist" id="markdown-toc-93-conformance-checklist">9.3 Conformance checklist</a></li>
+        </ul>
+      </li>
+      <li><a href="#10-open-questions-and-references" id="markdown-toc-10-open-questions-and-references">10. Open questions and references</a>        <ul>
+          <li><a href="#101-known-deviations-and-open-items" id="markdown-toc-101-known-deviations-and-open-items">10.1 Known deviations and open items</a></li>
+          <li><a href="#102-references" id="markdown-toc-102-references">10.2 References</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="track-2b-siu-to-fhir-appointment-adapter-specification">Track 2B: SIU to FHIR Appointment Adapter Specification</h1>
+
+<p>Oct 26, 2026 · @DFF</p>
+
+<h2 id="1-purpose-and-scope">1. Purpose and scope</h2>
+
+<p>Track 2B participants build an <strong>adapter</strong> that receives HL7 v2 SIU scheduling messages and keeps a FHIR R4 server's appointments up to date, producing resources that conform to <strong>AU Core 2.0.0</strong>. Build it in any language; this document is the contract your adapter is tested against.</p>
+
+<p>A reference implementation in Python (<code class="language-plaintext highlighter-rouge">siu-fhir-au-core</code>) behaves exactly as described here, and its sample messages and expected results are the Track 2B test set (section 9).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>In scope</th>
+      <th>Out of scope</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SIU events S12 (new booking), S13 (reschedule), S14 (modification), S15 (cancellation)</td>
+      <td>Other SIU events (S16–S26) and other message types: reject them</td>
+    </tr>
+    <tr>
+      <td>HTTP POST input with HL7 acknowledgements; MLLP input is optional</td>
+      <td>Security: no authentication or TLS is required</td>
+    </tr>
+    <tr>
+      <td>Writing Appointment, Patient, Practitioner and Location; referencing existing Organizations</td>
+      <td>Slot and Schedule resources</td>
+    </tr>
+    <tr>
+      <td>AU Core 2.0.0 for Patient, Practitioner, Location, Organization; a track profile for Appointment</td>
+      <td>Querying or displaying appointments (that is the front end's job)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All test data is <strong>simulated</strong>. IHI, HPI-I and Medicare numbers in the samples are synthetic: they pass the AU Base format checks but were not issued to anyone.</p>
+
+<p>The keywords SHALL, SHOULD and MAY are used as in RFC 2119: SHALL is required to pass the track, SHOULD is expected unless you note why not, MAY is optional.</p>
+
+<h2 id="2-assumptions-and-preconditions">2. Assumptions and preconditions</h2>
+
+<p>The key assumption: <strong>every facility's Organization is already on the FHIR server</strong> before any SIU message arrives, with an identifier whose system is <code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/organization</code> and whose value equals the facility code sent in AIL-3.4. The adapter looks these up and never changes them.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Assumption</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A1</td>
+      <td>FHIR R4 (4.0.1) server reachable over REST</td>
+      <td>A shared HAPI FHIR server is provided at the event; its base URL is given at kick-off. Base URL is configurable, e.g. <code class="language-plaintext highlighter-rouge">http://localhost:8080/fhir</code> for local testing</td>
+    </tr>
+    <tr>
+      <td>A2</td>
+      <td>Server supports search by <code class="language-plaintext highlighter-rouge">identifier</code>, conditional update (<code class="language-plaintext highlighter-rouge">PUT [type]?identifier=…</code>) and conditional create (<code class="language-plaintext highlighter-rouge">If-None-Exist</code>)</td>
+      <td>All standard FHIR R4 REST interactions</td>
+    </tr>
+    <tr>
+      <td>A3</td>
+      <td>Organizations are pre-loaded (above)</td>
+      <td>Example: Organization "Simulated Hospital" with identifier <code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/organization</code> | <code class="language-plaintext highlighter-rouge">SIMHOSP</code>, plus its address. The track supplies them as a transaction Bundle</td>
+    </tr>
+    <tr>
+      <td>A4</td>
+      <td>Messages are HL7 v2.5 SIU, pipe-delimited (ER7), one message per HTTP request body (or MLLP frame)</td>
+      <td>Delimiters are read from MSH, never assumed</td>
+    </tr>
+    <tr>
+      <td>A5</td>
+      <td>Sender follows Australian v2 conventions for national identifiers</td>
+      <td>IHI <code class="language-plaintext highlighter-rouge">^^^AUSHIC^NI</code>, Medicare <code class="language-plaintext highlighter-rouge">^^^AUSHIC^MC</code>, HPI-I XCN.13 <code class="language-plaintext highlighter-rouge">NPI</code>, Medicare provider number XCN.9 <code class="language-plaintext highlighter-rouge">AUSHICPR</code></td>
+    </tr>
+    <tr>
+      <td>A6</td>
+      <td>Timestamps without a UTC offset are local time in a configured zone</td>
+      <td>Default <code class="language-plaintext highlighter-rouge">Australia/Brisbane</code> (+10:00, no daylight saving)</td>
+    </tr>
+    <tr>
+      <td>A7</td>
+      <td>The adapter is the only writer of Appointments for these messages</td>
+      <td>Each message rebuilds the whole Appointment</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If an Organization is missing despite A3, the adapter SHALL either create a placeholder Organization (section 6.8) or reject the message with AE; the choice is the team's. State which option you chose when you register for the track.</p>
+
+<h2 id="3-architecture-overview">3. Architecture overview</h2>
+
+<p><img src="track2b-architecture.png" alt="Track 2B adapter architecture" />
+[embedded content: adapter architecture · 3 components, 8 steps]</p>
+
+<p>Messages arrive by HTTP POST; MLLP is an optional extra. The adapter never changes an existing Organization, Patient or Practitioner: it references the server's copy as is. It creates a Patient or Practitioner only when none matches, and an Organization placeholder only for teams that choose that option (F5). Locations and the Appointment are written with conditional updates, so a replayed message changes nothing. A front end reads the server directly and is outside this track.</p>
+
+<h2 id="4-functional-requirements">4. Functional requirements</h2>
+
+<p>The adapter SHALL perform F1–F8 for every message, in order, and SHALL send exactly one acknowledgement per message whatever happens.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Function</th>
+      <th>Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F1</td>
+      <td>Receive</td>
+      <td>SHALL accept one raw HL7 message in the body of an HTTP POST and return its ACK in the response (section 5.1). MAY also listen for MLLP on a configurable TCP port (2575 by default), accepting several messages on one connection (section 5.2)</td>
+    </tr>
+    <tr>
+      <td>F2</td>
+      <td>Parse</td>
+      <td>SHALL read the delimiters from MSH-1 and MSH-2; split segments on CR (also accept LF and CRLF); split fields, repetitions, components and sub-components; decode escapes <code class="language-plaintext highlighter-rouge">\F\</code> <code class="language-plaintext highlighter-rouge">\S\</code> <code class="language-plaintext highlighter-rouge">\T\</code> <code class="language-plaintext highlighter-rouge">\R\</code> <code class="language-plaintext highlighter-rouge">\E\</code>. Field numbers follow HL7: MSH-1 is the field separator</td>
+    </tr>
+    <tr>
+      <td>F3</td>
+      <td>Validate</td>
+      <td>SHALL reject (<code class="language-plaintext highlighter-rouge">AR</code>) anything that is not SIU or not S12–S15. SHALL return <code class="language-plaintext highlighter-rouge">AE</code> for required data missing or invalid (section 8) and write nothing</td>
+    </tr>
+    <tr>
+      <td>F4</td>
+      <td>Map</td>
+      <td>SHALL build Patient, Practitioner(s), Location(s) and the Appointment as in section 6, and apply the code mappings in section 7</td>
+    </tr>
+    <tr>
+      <td>F5</td>
+      <td>Resolve Organizations</td>
+      <td>For each distinct AIL-3.4 facility code: SHALL search <code class="language-plaintext highlighter-rouge">Organization?identifier=http://example.org/fhir/sid/organization\|&lt;code&gt;</code> and use the result <strong>unchanged</strong>. If none exists, SHALL either create a placeholder with conditional create and log a warning, or reject the message with AE (team's choice; section 8)</td>
+    </tr>
+    <tr>
+      <td>F6</td>
+      <td>Order check</td>
+      <td>SHALL find any existing Appointment by its identifier. If the stored source message time (extension, section 6.9) is later than this message's MSH-7, SHALL acknowledge <code class="language-plaintext highlighter-rouge">AA</code> and change nothing</td>
+    </tr>
+    <tr>
+      <td>F7</td>
+      <td>Write</td>
+      <td>For the Patient and each Practitioner, SHALL search on the match identifier and, if one exists, reference it unchanged (SHALL NOT update it); if none exists, SHALL create it with conditional create. SHALL write Locations with conditional update, then the Appointment (update by id if it exists, otherwise conditional update). Replaying a message SHALL NOT create duplicates</td>
+    </tr>
+    <tr>
+      <td>F8</td>
+      <td>Acknowledge</td>
+      <td>SHALL return an original-mode ACK (section 5.3): <code class="language-plaintext highlighter-rouge">AA</code> on success or stale message, <code class="language-plaintext highlighter-rouge">AE</code> on data or server errors, <code class="language-plaintext highlighter-rouge">AR</code> on rejection</td>
+    </tr>
+    <tr>
+      <td>F9</td>
+      <td>Log</td>
+      <td>SHOULD log each message's control ID, outcome and every warning (dropped identifiers, placeholders, untranslated codes)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The adapter SHOULD process messages one at a time (or serialise per appointment) so two messages for the same appointment cannot race.</p>
+
+<h2 id="5-interfaces">5. Interfaces</h2>
+
+<h3 id="51-http-primary">5.1 HTTP (primary)</h3>
+
+<p>Send each message as the body of <code class="language-plaintext highlighter-rouge">POST &lt;adapter base URL&gt;/hl7</code>, one message per request. Segments MAY be separated by CR, LF or CRLF. The response SHALL carry the original-mode ACK (section 5.3), with this HTTP status:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>When</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>ACK is <code class="language-plaintext highlighter-rouge">AA</code> (including a stale message, F6)</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>ACK is <code class="language-plaintext highlighter-rouge">AE</code> or <code class="language-plaintext highlighter-rouge">AR</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Empty or oversized body; no ACK can be built</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The adapter SHOULD also answer <code class="language-plaintext highlighter-rouge">GET /health</code> with 200, so hosting platforms and test tools can check it is up. The reference implementation returns JSON: the ACK in <code class="language-plaintext highlighter-rouge">ack</code> (segments separated by LF for readability), plus <code class="language-plaintext highlighter-rouge">appointment</code>, <code class="language-plaintext highlighter-rouge">resources</code> and <code class="language-plaintext highlighter-rouge">warnings</code>. Teams MAY return the ACK as plain text instead.</p>
+
+<p>HTTP is the primary interface because many hosting services expose only HTTP(S); a Render web service, for example, routes public traffic to one HTTP port only. Example: <code class="language-plaintext highlighter-rouge">curl --data-binary @01_s12_book.hl7 https://&lt;adapter&gt;/hl7</code> (on Windows PowerShell, <code class="language-plaintext highlighter-rouge">curl.exe --data-binary "@01_s12_book.hl7" …</code>).</p>
+
+<h3 id="52-mllp-optional">5.2 MLLP (optional)</h3>
+
+<p>If offered, each message is framed as <code class="language-plaintext highlighter-rouge">0x0B</code> + message + <code class="language-plaintext highlighter-rouge">0x1C 0x0D</code>, with segments separated by CR (<code class="language-plaintext highlighter-rouge">0x0D</code>). The ACK goes back on the same connection in the same framing. Several messages MAY arrive on one connection; process and acknowledge them in order.</p>
+
+<h3 id="53-acknowledgement">5.3 Acknowledgement</h3>
+
+<p>Original-mode ACK, segments separated by CR:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MSH|^~\&amp;|&lt;your app&gt;|&lt;your facility&gt;|&lt;MSH-3&gt;|&lt;MSH-4&gt;|&lt;now, YYYYMMDDHHMMSS+ZZZZ&gt;||ACK^&lt;MSH-9.2&gt;^ACK|&lt;new control id&gt;|&lt;MSH-11, else P&gt;|&lt;MSH-12, else 2.5&gt;
+MSA|&lt;AA|AE|AR&gt;|&lt;received MSH-10&gt;
+ERR|||&lt;code&gt;^&lt;text&gt;^HL70357|E||||&lt;readable explanation&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>The ERR segment is sent only with <code class="language-plaintext highlighter-rouge">AE</code> or <code class="language-plaintext highlighter-rouge">AR</code>; section 8 lists the codes.</li>
+  <li>Any <code class="language-plaintext highlighter-rouge">|</code>, <code class="language-plaintext highlighter-rouge">^</code>, <code class="language-plaintext highlighter-rouge">~</code>, <code class="language-plaintext highlighter-rouge">\</code> or <code class="language-plaintext highlighter-rouge">&amp;</code> in the explanation SHALL be escaped.</li>
+  <li>If the message couldn't be parsed at all, use the default delimiters and leave the echoed fields empty.</li>
+</ul>
+
+<h3 id="54-fhir-rest-interactions">5.4 FHIR REST interactions</h3>
+
+<p>All requests use <code class="language-plaintext highlighter-rouge">Accept</code> and <code class="language-plaintext highlighter-rouge">Content-Type: application/fhir+json</code>; writes SHOULD send <code class="language-plaintext highlighter-rouge">Prefer: return=representation</code>. For one message, in this order:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Request</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">GET Appointment?identifier=&lt;system&gt;\|&lt;value&gt;</code></td>
+      <td>Find the existing Appointment (filler ID, else placer ID) for F6</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">GET Organization?identifier=http://example.org/fhir/sid/organization\|&lt;AIL-3.4&gt;</code></td>
+      <td>Per facility; use the result as is</td>
+    </tr>
+    <tr>
+      <td>2a</td>
+      <td><code class="language-plaintext highlighter-rouge">POST Organization</code> with header <code class="language-plaintext highlighter-rouge">If-None-Exist: identifier=…</code></td>
+      <td>Only when step 2 found nothing and the team creates placeholders</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">GET Patient?identifier=&lt;system&gt;\|&lt;value&gt;</code></td>
+      <td>First usable PID-3 identifier is the match key; if found, use it as is</td>
+    </tr>
+    <tr>
+      <td>3a</td>
+      <td><code class="language-plaintext highlighter-rouge">POST Patient</code> with header <code class="language-plaintext highlighter-rouge">If-None-Exist: identifier=…</code></td>
+      <td>Only when step 3 found nothing</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">GET Practitioner?identifier=&lt;system&gt;\|&lt;value&gt;</code></td>
+      <td>Per active AIP with an ID and family name; if found, use it as is</td>
+    </tr>
+    <tr>
+      <td>4a</td>
+      <td><code class="language-plaintext highlighter-rouge">POST Practitioner</code> with header <code class="language-plaintext highlighter-rouge">If-None-Exist: identifier=…</code></td>
+      <td>Only when step 4 found nothing</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">PUT Location?identifier=&lt;system&gt;\|&lt;value&gt;</code></td>
+      <td>Per active AIL with location parts</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="language-plaintext highlighter-rouge">PUT Appointment/&lt;id&gt;</code>, or <code class="language-plaintext highlighter-rouge">PUT Appointment?identifier=…</code> if new</td>
+      <td>Write the rebuilt Appointment</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In token searches, escape <code class="language-plaintext highlighter-rouge">|</code>, <code class="language-plaintext highlighter-rouge">,</code>, <code class="language-plaintext highlighter-rouge">$</code> and <code class="language-plaintext highlighter-rouge">\</code> inside the system or value with a backslash, then URL-encode the whole parameter. A conditional update or create that matches more than one resource fails (HTTP 412), and a Patient or Practitioner search that returns more than one match is ambiguous: treat both as a server error (<code class="language-plaintext highlighter-rouge">AE</code>, code 207).</p>
+
+<h2 id="6-detailed-mapping">6. Detailed mapping</h2>
+
+<p>Every message rebuilds the whole Appointment from that message; Patient, Practitioner and Location are rebuilt and overwritten too. Field numbers are HL7 v2.5; <code class="language-plaintext highlighter-rouge">X-n.m.s</code> = field n, component m, sub-component s.</p>
+
+<h3 id="61-conventions">6.1 Conventions</h3>
+
+<p><strong>Identifier systems.</strong> <code class="language-plaintext highlighter-rouge">{c}</code> is a code taken from the message, percent-encoded; an empty code becomes <code class="language-plaintext highlighter-rouge">default</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource / identifier</th>
+      <th><code class="language-plaintext highlighter-rouge">system</code></th>
+      <th><code class="language-plaintext highlighter-rouge">value</code></th>
+      <th><code class="language-plaintext highlighter-rouge">type</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Appointment, filler ID</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/appointment/filler/{SCH-2.2, else SCH-2.3}</code></td>
+      <td>SCH-2.1</td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">FILL</code></td>
+    </tr>
+    <tr>
+      <td>Appointment, placer ID</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/appointment/placer/{SCH-1.2, else SCH-1.3}</code></td>
+      <td>SCH-1.1</td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">PLAC</code></td>
+    </tr>
+    <tr>
+      <td>Patient MRN (PID-3.5 = <code class="language-plaintext highlighter-rouge">MR</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/mrn/{PID-3.4}</code></td>
+      <td>PID-3.1</td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">MR</code></td>
+    </tr>
+    <tr>
+      <td>Patient, other local IDs</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/patient/{PID-3.4}/{PID-3.5, else id}</code></td>
+      <td>PID-3.1</td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">{PID-3.5}</code> if present</td>
+    </tr>
+    <tr>
+      <td>IHI, Medicare, HPI-I, provider number</td>
+      <td>Fixed national systems (section 7.6)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Practitioner, local ID</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/practitioner/{AIP-3.9}</code></td>
+      <td>AIP-3.1</td>
+      <td>none</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/location</code></td>
+      <td>AIL-3.4 / AIL-3.1 / AIL-3.2 / AIL-3.3, empty parts skipped, joined with <code class="language-plaintext highlighter-rouge">/</code> (e.g. <code class="language-plaintext highlighter-rouge">SIMHOSP/OPD/CLINIC1</code>)</td>
+      <td>none</td>
+    </tr>
+    <tr>
+      <td>Organization (lookup only)</td>
+      <td><code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/organization</code></td>
+      <td>AIL-3.4</td>
+      <td>none</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The filler ID is the Appointment's match key; the placer ID is used only when SCH-2 is empty. If both are empty the message gets <code class="language-plaintext highlighter-rouge">AE</code>.</p>
+
+<p><strong>Date-times.</strong> HL7 DTM is <code class="language-plaintext highlighter-rouge">YYYY[MM[DD[HH[MM[SS[.S…]]]]]][+/-ZZZZ]</code>. Missing parts default to the start of the period. Keep a given offset; otherwise apply the configured time zone. Write FHIR dateTime with the offset, e.g. <code class="language-plaintext highlighter-rouge">2026-10-14T09:30:00+10:00</code>. A value that doesn't parse, or has an impossible part (month 13), is an error (<code class="language-plaintext highlighter-rouge">AE</code>, 102).</p>
+
+<p><strong>Coded fields (CE).</strong> CE.1 → <code class="language-plaintext highlighter-rouge">coding.code</code>; CE.2 → <code class="language-plaintext highlighter-rouge">coding.display</code> and <code class="language-plaintext highlighter-rouge">text</code> (<code class="language-plaintext highlighter-rouge">text</code> = CE.1 if CE.2 is empty). For <code class="language-plaintext highlighter-rouge">coding.system</code>:</p>
+
+<ul>
+  <li>CE.3 = <code class="language-plaintext highlighter-rouge">HL70276</code> → <code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/v2-0276</code></li>
+  <li>any other CE.3 → <code class="language-plaintext highlighter-rouge">http://example.org/fhir/CodeSystem/v2-local/{CE.3}</code></li>
+  <li>CE.3 empty → no system</li>
+</ul>
+
+<p><strong>Resource segments.</strong> An AIS, AIG, AIL or AIP whose segment action code (field 2) is <code class="language-plaintext highlighter-rouge">D</code> is ignored entirely. Any other value, or none, counts as active. RGS segments are ignored and all groups are flattened into one Appointment.</p>
+
+<p><strong>Durations.</strong> Units come from CE.1, case-insensitive: s/sec/second(s); min/mins/minute(s); h/hr/hrs/hour(s); d/day(s). Empty units mean minutes, with a warning. A non-numeric, negative or infinite amount, or an unknown unit, is an error (<code class="language-plaintext highlighter-rouge">AE</code>, 102).</p>
+
+<h3 id="62-appointment">6.2 Appointment</h3>
+
+<p>Profile: SIU AU Appointment (<code class="language-plaintext highlighter-rouge">http://example.org/fhir/siu2fhir-au/StructureDefinition/siu-au-appointment</code>), set in <code class="language-plaintext highlighter-rouge">meta.profile</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HL7 v2</th>
+      <th>FHIR Appointment</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SCH-2, SCH-1</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier[]</code></td>
+      <td>Filler first, then placer (6.1)</td>
+    </tr>
+    <tr>
+      <td>SCH-25 + trigger event</td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Section 6.3</td>
+    </tr>
+    <tr>
+      <td>SCH-6</td>
+      <td><code class="language-plaintext highlighter-rouge">cancelationReason</code></td>
+      <td>CE → CodeableConcept, only when <code class="language-plaintext highlighter-rouge">status</code> = <code class="language-plaintext highlighter-rouge">cancelled</code></td>
+    </tr>
+    <tr>
+      <td>SCH-7</td>
+      <td><code class="language-plaintext highlighter-rouge">appointmentType</code></td>
+      <td>CE → CodeableConcept</td>
+    </tr>
+    <tr>
+      <td>AIS-3 (each active AIS)</td>
+      <td><code class="language-plaintext highlighter-rouge">serviceType[]</code></td>
+      <td>CE → CodeableConcept</td>
+    </tr>
+    <tr>
+      <td>SCH-11.4.1</td>
+      <td><code class="language-plaintext highlighter-rouge">start</code></td>
+      <td>Else the earliest AIS-4 / AIG-8 / AIL-6 / AIP-6 of active segments</td>
+    </tr>
+    <tr>
+      <td>SCH-11.5.1</td>
+      <td><code class="language-plaintext highlighter-rouge">end</code></td>
+      <td>Else <code class="language-plaintext highlighter-rouge">start</code> + SCH-9 (units SCH-10); else the latest resource start + its duration (AIS-7/8, AIG-11/12, AIL-9/10, AIP-9/10)</td>
+    </tr>
+    <tr>
+      <td>(computed)</td>
+      <td><code class="language-plaintext highlighter-rouge">minutesDuration</code></td>
+      <td>Whole minutes from <code class="language-plaintext highlighter-rouge">start</code> to <code class="language-plaintext highlighter-rouge">end</code>, rounded down</td>
+    </tr>
+    <tr>
+      <td>NTE-3 (all NTE segments)</td>
+      <td><code class="language-plaintext highlighter-rouge">comment</code></td>
+      <td>Joined with a newline, in message order</td>
+    </tr>
+    <tr>
+      <td>PID, AIP, AIL, AIG</td>
+      <td><code class="language-plaintext highlighter-rouge">participant[]</code></td>
+      <td>Section 6.4</td>
+    </tr>
+    <tr>
+      <td>MSH-7</td>
+      <td><code class="language-plaintext highlighter-rouge">extension</code> source-message-datetime (<code class="language-plaintext highlighter-rouge">valueDateTime</code>)</td>
+      <td>Used by the order check (F6)</td>
+    </tr>
+    <tr>
+      <td>MSH-10</td>
+      <td><code class="language-plaintext highlighter-rouge">extension</code> source-message-control-id (<code class="language-plaintext highlighter-rouge">valueString</code>)</td>
+      <td>Traceability</td>
+    </tr>
+    <tr>
+      <td>SCH-8, SCH-12 to SCH-24, SCH-26/27, TQ1</td>
+      <td>not mapped</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>End before start is an error (<code class="language-plaintext highlighter-rouge">AE</code>, 101). FHIR R4 rule app-3 needs both <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">end</code> unless the status is <code class="language-plaintext highlighter-rouge">proposed</code>, <code class="language-plaintext highlighter-rouge">cancelled</code> or <code class="language-plaintext highlighter-rouge">waitlist</code>, so a message without them gets <code class="language-plaintext highlighter-rouge">AE</code> (101).</p>
+
+<p>Extension URLs: <code class="language-plaintext highlighter-rouge">http://example.org/fhir/siu2fhir-au/StructureDefinition/source-message-datetime</code> and <code class="language-plaintext highlighter-rouge">…/source-message-control-id</code>.</p>
+
+<h3 id="63-appointment-status">6.3 Appointment status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trigger</th>
+      <th>SCH-25 present and in table 0278</th>
+      <th>SCH-25 empty or unrecognised</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S12</td>
+      <td>Mapped value (section 7.1)</td>
+      <td><code class="language-plaintext highlighter-rouge">booked</code></td>
+    </tr>
+    <tr>
+      <td>S13, S14</td>
+      <td>Mapped value</td>
+      <td>Status of the existing Appointment (<code class="language-plaintext highlighter-rouge">booked</code> if new)</td>
+    </tr>
+    <tr>
+      <td>S15</td>
+      <td><code class="language-plaintext highlighter-rouge">cancelled</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cancelled</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An unrecognised SCH-25 code is logged as a warning, not rejected.</p>
+
+<h3 id="64-participants">6.4 Participants</h3>
+
+<p>In this order, each with <code class="language-plaintext highlighter-rouge">status</code> = <code class="language-plaintext highlighter-rouge">accepted</code>:</p>
+
+<ol>
+  <li><strong>Patient</strong>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">actor.reference</code> = the Patient</li>
+      <li><code class="language-plaintext highlighter-rouge">actor.display</code> = given names + family name from the first named entry</li>
+      <li><code class="language-plaintext highlighter-rouge">required</code> = <code class="language-plaintext highlighter-rouge">required</code></li>
+    </ul>
+  </li>
+  <li><strong>Each active AIP</strong>:
+    <ul>
+      <li>With an ID (AIP-3.1) and a family name (AIP-3.2): <code class="language-plaintext highlighter-rouge">actor.reference</code> = the Practitioner, <code class="language-plaintext highlighter-rouge">actor.display</code> = prefix + given + family.</li>
+      <li>Otherwise: <code class="language-plaintext highlighter-rouge">actor.display</code> only (the name, or <code class="language-plaintext highlighter-rouge">Unidentified personnel</code>).</li>
+      <li><code class="language-plaintext highlighter-rouge">type</code> from AIP-4 (section 7.3).</li>
+    </ul>
+  </li>
+  <li><strong>Each active AIL</strong>:
+    <ul>
+      <li>With any of AIL-3.1 to AIL-3.4: <code class="language-plaintext highlighter-rouge">actor.reference</code> = the Location, <code class="language-plaintext highlighter-rouge">actor.display</code> = its name.</li>
+      <li>Otherwise: <code class="language-plaintext highlighter-rouge">actor.display</code> only (AIL-3.9, or <code class="language-plaintext highlighter-rouge">Unidentified location</code>).</li>
+    </ul>
+  </li>
+  <li><strong>Each active AIG with a value in AIG-3</strong>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">actor.display</code> = AIG-3.2, else AIG-3.1. No resource is created.</li>
+      <li><code class="language-plaintext highlighter-rouge">type</code> from AIG-4 (section 7.3).</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="65-patient-pid">6.5 Patient (PID)</h3>
+
+<p>Profile: AU Core Patient (<code class="language-plaintext highlighter-rouge">http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient</code>), set in <code class="language-plaintext highlighter-rouge">meta.profile</code>.</p>
+
+<p>This mapping is used only to create a Patient that isn't on the server yet. If a Patient with the match identifier (the first usable PID-3 identifier) already exists, the adapter references it unchanged (F7), and the Appointment's patient <code class="language-plaintext highlighter-rouge">actor.display</code> SHOULD come from that Patient's name.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HL7 v2</th>
+      <th>FHIR Patient</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PID-3, each repetition</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier[]</code></td>
+      <td>By PID-3.5 / PID-3.4, see the table below. The first identifier kept is the match key</td>
+    </tr>
+    <tr>
+      <td>PID-5, each repetition with a family or given name</td>
+      <td><code class="language-plaintext highlighter-rouge">name[]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">family</code> = XPN.1.1; <code class="language-plaintext highlighter-rouge">given</code> = [XPN.2, XPN.3]; <code class="language-plaintext highlighter-rouge">prefix</code> = XPN.5; <code class="language-plaintext highlighter-rouge">suffix</code> = XPN.4; <code class="language-plaintext highlighter-rouge">use</code> = <code class="language-plaintext highlighter-rouge">official</code> when XPN.7 = <code class="language-plaintext highlighter-rouge">L</code>; <code class="language-plaintext highlighter-rouge">text</code> = prefix, given, family, suffix joined with spaces</td>
+    </tr>
+    <tr>
+      <td>(no family name in any name)</td>
+      <td>extra <code class="language-plaintext highlighter-rouge">name</code> entry</td>
+      <td><code class="language-plaintext highlighter-rouge">{"extension":[data-absent-reason = unknown]}</code> and nothing else (AU Core rules au-core-pat-02 and -03)</td>
+    </tr>
+    <tr>
+      <td>PID-7</td>
+      <td><code class="language-plaintext highlighter-rouge">birthDate</code></td>
+      <td>Precision kept (YYYY, YYYY-MM or YYYY-MM-DD; any time dropped). Empty → <code class="language-plaintext highlighter-rouge">_birthDate</code> with data-absent-reason <code class="language-plaintext highlighter-rouge">unknown</code>. Invalid → <code class="language-plaintext highlighter-rouge">AE</code> (102)</td>
+    </tr>
+    <tr>
+      <td>PID-8</td>
+      <td><code class="language-plaintext highlighter-rouge">gender</code></td>
+      <td>Section 7.2. Empty → <code class="language-plaintext highlighter-rouge">unknown</code> (AU Core requires gender)</td>
+    </tr>
+    <tr>
+      <td>PID-10.1</td>
+      <td><code class="language-plaintext highlighter-rouge">extension</code> indigenous-status</td>
+      <td>Section 7.5</td>
+    </tr>
+    <tr>
+      <td>PID-11, each repetition</td>
+      <td><code class="language-plaintext highlighter-rouge">address[]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">line</code> = [XAD.1.1, XAD.2]; <code class="language-plaintext highlighter-rouge">city</code> = .3; <code class="language-plaintext highlighter-rouge">state</code> = .4; <code class="language-plaintext highlighter-rouge">postalCode</code> = .5; <code class="language-plaintext highlighter-rouge">country</code> = .6; normalised as in section 7.7; <code class="language-plaintext highlighter-rouge">text</code> = "line, city, state postcode"</td>
+    </tr>
+    <tr>
+      <td>PID-13 / PID-14</td>
+      <td><code class="language-plaintext highlighter-rouge">telecom[]</code></td>
+      <td>Email when XTN.4 is set and XTN.3 = <code class="language-plaintext highlighter-rouge">Internet</code> or <code class="language-plaintext highlighter-rouge">X.400</code>, or XTN.2 = <code class="language-plaintext highlighter-rouge">NET</code>. Otherwise phone: XTN.1, else XTN.6 + space + XTN.7. <code class="language-plaintext highlighter-rouge">use</code> = <code class="language-plaintext highlighter-rouge">home</code> (PID-13) or <code class="language-plaintext highlighter-rouge">work</code> (PID-14); <code class="language-plaintext highlighter-rouge">mobile</code> when XTN.3 = <code class="language-plaintext highlighter-rouge">CP</code></td>
+    </tr>
+    <tr>
+      <td>PID-15</td>
+      <td><code class="language-plaintext highlighter-rouge">communication[0].language</code></td>
+      <td><code class="language-plaintext highlighter-rouge">text</code> = CE.2 or CE.1. Add <code class="language-plaintext highlighter-rouge">coding</code> system <code class="language-plaintext highlighter-rouge">urn:ietf:bcp:47</code>, code = CE.1 in lower case, only when CE.3 is <code class="language-plaintext highlighter-rouge">ISO639</code>, <code class="language-plaintext highlighter-rouge">ISO639-1</code>, <code class="language-plaintext highlighter-rouge">BCP47</code> or <code class="language-plaintext highlighter-rouge">IETF</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>PID-3 identifiers</strong>, checked in this order for each repetition:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Condition</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PID-3.5 = <code class="language-plaintext highlighter-rouge">NI</code>, or PID-3.4 = <code class="language-plaintext highlighter-rouge">AUSHIC</code> and value starts <code class="language-plaintext highlighter-rouge">800360</code></td>
+      <td>IHI (7.6). If the value fails the IHI check, drop it and warn</td>
+    </tr>
+    <tr>
+      <td>PID-3.5 = <code class="language-plaintext highlighter-rouge">MC</code></td>
+      <td>Medicare (7.6). Not 10–11 digits → drop and warn. PID-3.8 → <code class="language-plaintext highlighter-rouge">period.end</code></td>
+    </tr>
+    <tr>
+      <td>PID-3.4 = <code class="language-plaintext highlighter-rouge">AUSDVA</code></td>
+      <td>Kept as a local identifier (6.1) with a warning: SIU carries no DVA entitlement type, which the AU DVA Number profile requires</td>
+    </tr>
+    <tr>
+      <td>PID-3.5 = <code class="language-plaintext highlighter-rouge">MR</code></td>
+      <td>MRN (6.1). No <code class="language-plaintext highlighter-rouge">assigner</code></td>
+    </tr>
+    <tr>
+      <td>anything else</td>
+      <td>Local identifier (6.1)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If no identifier survives, the message gets <code class="language-plaintext highlighter-rouge">AE</code> (101): AU Core rule au-core-pat-01.</p>
+
+<h3 id="66-practitioner-aip-3">6.6 Practitioner (AIP-3)</h3>
+
+<p>Profile: AU Core Practitioner. A Practitioner is created only when AIP-3.1 <strong>and</strong> AIP-3.2 (family name, required by AU Core) are present; otherwise the participant is display-only and a warning is logged.</p>
+
+<p>This mapping is used only to create a Practitioner that isn't on the server yet. If a Practitioner with the match identifier already exists, the adapter references it unchanged (F7), and the participant's <code class="language-plaintext highlighter-rouge">actor.display</code> SHOULD come from that Practitioner's name.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HL7 v2</th>
+      <th>FHIR Practitioner</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AIP-3.1 with XCN.13 = <code class="language-plaintext highlighter-rouge">NPI</code>, or XCN.9 = <code class="language-plaintext highlighter-rouge">AUSHIC</code> and value starts <code class="language-plaintext highlighter-rouge">800361</code></td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> HPI-I (7.6)</td>
+      <td>Fails the HPI-I check → local identifier instead, with a warning</td>
+    </tr>
+    <tr>
+      <td>AIP-3.1 with XCN.9 = <code class="language-plaintext highlighter-rouge">AUSHICPR</code></td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> Medicare provider number (7.6)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AIP-3.1, other</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> local (6.1)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AIP-3.2.1, AIP-3.3, AIP-3.6</td>
+      <td><code class="language-plaintext highlighter-rouge">name[0]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">family</code>, <code class="language-plaintext highlighter-rouge">given</code>, <code class="language-plaintext highlighter-rouge">prefix</code>; <code class="language-plaintext highlighter-rouge">text</code> = prefix given family</td>
+    </tr>
+    <tr>
+      <td>AIP-4</td>
+      <td>(on the Appointment participant)</td>
+      <td>Section 7.3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="67-location-ail-3">6.7 Location (AIL-3)</h3>
+
+<p>Profile: AU Core Location. One Location per distinct AIL-3 combination; same combination = same Location.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HL7 v2 / source</th>
+      <th>FHIR Location</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AIL-3.4, .1, .2, .3</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code></td>
+      <td>6.1 (satisfies AU Core rule au-core-loc-01)</td>
+    </tr>
+    <tr>
+      <td>AIL-3.9</td>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>Else the AIL-3 parts joined with spaces</td>
+    </tr>
+    <tr>
+      <td>(constant)</td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+    </tr>
+    <tr>
+      <td>AIL-4</td>
+      <td><code class="language-plaintext highlighter-rouge">type[0]</code></td>
+      <td>Translated through the track's location type table (7.4) when listed; else CE → CodeableConcept and a warning</td>
+    </tr>
+    <tr>
+      <td>AIL-3.3 / .2 / .1</td>
+      <td><code class="language-plaintext highlighter-rouge">physicalType</code></td>
+      <td>Most specific part present: bed → <code class="language-plaintext highlighter-rouge">bd</code>, room → <code class="language-plaintext highlighter-rouge">ro</code>, point of care → <code class="language-plaintext highlighter-rouge">wa</code> (7.4)</td>
+    </tr>
+    <tr>
+      <td>AIL-3.4 → Organization from F5</td>
+      <td><code class="language-plaintext highlighter-rouge">managingOrganization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reference</code> = the server's Organization; <code class="language-plaintext highlighter-rouge">display</code> = its <code class="language-plaintext highlighter-rouge">name</code></td>
+    </tr>
+    <tr>
+      <td>That Organization's <code class="language-plaintext highlighter-rouge">address[0]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">address</code></td>
+      <td>Copied as is when the Organization has an address</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="68-organization-lookup-never-written">6.8 Organization (lookup, never written)</h3>
+
+<p>The adapter SHALL NOT update an existing Organization. Teams that create placeholders (F5) use this when no Organization exists for a facility code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"resourceType": "Organization",
+ "meta": {"profile": ["http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization"],
+          "tag": [{"system": "http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag", "code": "placeholder"}]},
+ "identifier": [{"system": "http://example.org/fhir/sid/organization", "value": "&lt;AIL-3.4&gt;"}],
+ "name": "&lt;AIL-3.4&gt;", "active": true}
+</code></pre></div></div>
+
+<p>It is created with <code class="language-plaintext highlighter-rouge">POST Organization</code> and <code class="language-plaintext highlighter-rouge">If-None-Exist: identifier=http://example.org/fhir/sid/organization|&lt;AIL-3.4&gt;</code>, so it can never be duplicated. A Location under a placeholder has no address.</p>
+
+<h2 id="7-code-set-mappings">7. Code set mappings</h2>
+
+<p>Code matching is case-insensitive unless stated.</p>
+
+<h3 id="71-sch-25-filler-status-hl7-table-0278--appointmentstatus">7.1 SCH-25 filler status (HL7 table 0278) → Appointment.status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SCH-25</th>
+      <th><code class="language-plaintext highlighter-rouge">status</code></th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pending</td>
+      <td><code class="language-plaintext highlighter-rouge">pending</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Waitlist</td>
+      <td><code class="language-plaintext highlighter-rouge">waitlist</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Booked</td>
+      <td><code class="language-plaintext highlighter-rouge">booked</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Started</td>
+      <td><code class="language-plaintext highlighter-rouge">arrived</code></td>
+      <td>The HL7 v2-to-FHIR IG uses <code class="language-plaintext highlighter-rouge">checked-in</code>; this track uses <code class="language-plaintext highlighter-rouge">arrived</code></td>
+    </tr>
+    <tr>
+      <td>Complete</td>
+      <td><code class="language-plaintext highlighter-rouge">fulfilled</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Cancelled</td>
+      <td><code class="language-plaintext highlighter-rouge">cancelled</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Discontinued (v2.3+), DC (v2.9+)</td>
+      <td><code class="language-plaintext highlighter-rouge">cancelled</code></td>
+      <td>Both spellings SHALL be accepted</td>
+    </tr>
+    <tr>
+      <td>Deleted</td>
+      <td><code class="language-plaintext highlighter-rouge">entered-in-error</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Blocked, Overbook</td>
+      <td><code class="language-plaintext highlighter-rouge">booked</code></td>
+      <td>No exact FHIR equivalent</td>
+    </tr>
+    <tr>
+      <td>Noshow</td>
+      <td><code class="language-plaintext highlighter-rouge">noshow</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="72-pid-8-administrative-sex-table-0001--patientgender">7.2 PID-8 administrative sex (table 0001) → Patient.gender</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>PID-8</th>
+      <th><code class="language-plaintext highlighter-rouge">gender</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>M</td>
+      <td><code class="language-plaintext highlighter-rouge">male</code></td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td><code class="language-plaintext highlighter-rouge">female</code></td>
+    </tr>
+    <tr>
+      <td>O, A</td>
+      <td><code class="language-plaintext highlighter-rouge">other</code></td>
+    </tr>
+    <tr>
+      <td>U, N, any other value, empty</td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="73-aip-4--aig-4-role--participanttype">7.3 AIP-4 / AIG-4 role → participant.type</h3>
+
+<p>Codes in the FHIR participant-type value set go to their own code system; anything else follows the CE rule (6.1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CE.1</th>
+      <th><code class="language-plaintext highlighter-rouge">coding.system</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ADM, ATND, CALLBCK, CON, DIS, ESC, REF, SPRF, PPRF, PART</td>
+      <td><code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code> (code in upper case)</td>
+    </tr>
+    <tr>
+      <td>translator, emergency</td>
+      <td><code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/participant-type</code> (code in lower case)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">text</code> = CE.2 when present.</p>
+
+<h3 id="74-location-type-and-physical-type">7.4 Location type and physical type</h3>
+
+<ul>
+  <li><strong>AIL-4 → <code class="language-plaintext highlighter-rouge">Location.type</code>.</strong> Use the track's translation table, which maps local codes to ServiceDeliveryLocationRoleType - AU Extended. The table is supplied at the event and may be empty. A code not in the table is sent as a local code, with a warning.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Location.physicalType</code>.</strong> System <code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/location-physical-type</code>, using the most specific AIL-3 part present:
+    <ul>
+      <li>bed (AIL-3.3) → <code class="language-plaintext highlighter-rouge">bd</code> "Bed"</li>
+      <li>room (AIL-3.2) → <code class="language-plaintext highlighter-rouge">ro</code> "Room"</li>
+      <li>point of care (AIL-3.1) → <code class="language-plaintext highlighter-rouge">wa</code> "Ward"</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="75-pid-10--indigenous-status">7.5 PID-10 → Indigenous status</h3>
+
+<p>When PID-10.1 is <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">2</code>, <code class="language-plaintext highlighter-rouge">3</code>, <code class="language-plaintext highlighter-rouge">4</code> or <code class="language-plaintext highlighter-rouge">9</code>, add the Patient extension below. Any other value is not mapped, and a warning is logged.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"url": "http://hl7.org.au/fhir/StructureDefinition/indigenous-status",
+ "valueCoding": {"system": "https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1", "code": "&lt;PID-10.1&gt;"}}
+</code></pre></div></div>
+
+<h3 id="76-national-identifiers-au-base-600">7.6 National identifiers (AU Base 6.0.0)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th><code class="language-plaintext highlighter-rouge">system</code></th>
+      <th><code class="language-plaintext highlighter-rouge">type.coding</code></th>
+      <th>Check (fail → section 6.5 / 6.6 rule)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IHI</td>
+      <td><code class="language-plaintext highlighter-rouge">http://ns.electronichealth.net.au/id/hi/ihi/1.0</code></td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">NI</code></td>
+      <td>16 digits, starts <code class="language-plaintext highlighter-rouge">800360</code>, Luhn check passes</td>
+    </tr>
+    <tr>
+      <td>Medicare card number</td>
+      <td><code class="language-plaintext highlighter-rouge">http://ns.electronichealth.net.au/id/medicare-number</code></td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">MC</code></td>
+      <td>10 or 11 digits</td>
+    </tr>
+    <tr>
+      <td>HPI-I</td>
+      <td><code class="language-plaintext highlighter-rouge">http://ns.electronichealth.net.au/id/hi/hpii/1.0</code></td>
+      <td>v2-0203 <code class="language-plaintext highlighter-rouge">NPI</code></td>
+      <td>16 digits, starts <code class="language-plaintext highlighter-rouge">800361</code>, Luhn check passes</td>
+    </tr>
+    <tr>
+      <td>Medicare provider number</td>
+      <td><code class="language-plaintext highlighter-rouge">http://ns.electronichealth.net.au/id/medicare-provider-number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://terminology.hl7.org.au/CodeSystem/v2-0203</code> <code class="language-plaintext highlighter-rouge">UPIN</code></td>
+      <td>none</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>v2-0203 = <code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/v2-0203</code>. Luhn: from the rightmost digit, double every second digit, subtract 9 from any result over 9, and sum all digits; the total must be divisible by 10.</p>
+
+<h3 id="77-australian-address-normalisation-pid-11">7.7 Australian address normalisation (PID-11)</h3>
+
+<p>Apply when the country is <code class="language-plaintext highlighter-rouge">AU</code>, <code class="language-plaintext highlighter-rouge">AUS</code> or <code class="language-plaintext highlighter-rouge">Australia</code>, or empty with an Australian state. This shapes the address for the AU Base Australian Address profile:</p>
+
+<ul>
+  <li><strong>Country:</strong> <code class="language-plaintext highlighter-rouge">AU</code>, <code class="language-plaintext highlighter-rouge">AUS</code> or <code class="language-plaintext highlighter-rouge">Australia</code> → <code class="language-plaintext highlighter-rouge">AU</code>.</li>
+  <li><strong>State:</strong> a full name becomes its code (<code class="language-plaintext highlighter-rouge">Queensland</code> → <code class="language-plaintext highlighter-rouge">QLD</code>). Valid codes are ACT, NSW, NT, QLD, SA, TAS, VIC and WA. Any other value is kept as sent, with a warning.</li>
+  <li><strong>Postcode:</strong> must be 4 digits. Any other value is kept as sent, with a warning.</li>
+  <li><strong>Text:</strong> <code class="language-plaintext highlighter-rouge">text</code> is always set, so the profile's "text or line" rule holds.</li>
+</ul>
+
+<p>An address that still can't meet the profile is a valid plain Address in AU Core.</p>
+
+<h2 id="8-error-handling-and-acknowledgement-codes">8. Error handling and acknowledgement codes</h2>
+
+<p>Every message gets exactly one ACK. On <code class="language-plaintext highlighter-rouge">AE</code> or <code class="language-plaintext highlighter-rouge">AR</code> nothing from that message is written (an Organization placeholder already created may remain).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situation</th>
+      <th>MSA-1</th>
+      <th>ERR-3 (HL7 table 0357)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Applied</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>none</td>
+    </tr>
+    <tr>
+      <td>Older than the stored source message time (F6)</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>none; log it</td>
+    </tr>
+    <tr>
+      <td>Can't be parsed (doesn't start with MSH, bad segment name)</td>
+      <td><code class="language-plaintext highlighter-rouge">AR</code></td>
+      <td><code class="language-plaintext highlighter-rouge">207^Application internal error</code></td>
+    </tr>
+    <tr>
+      <td>MSH-9.1 is not <code class="language-plaintext highlighter-rouge">SIU</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AR</code></td>
+      <td><code class="language-plaintext highlighter-rouge">200^Unsupported message type</code></td>
+    </tr>
+    <tr>
+      <td>MSH-9.2 is not S12–S15</td>
+      <td><code class="language-plaintext highlighter-rouge">AR</code></td>
+      <td><code class="language-plaintext highlighter-rouge">201^Unsupported event code</code></td>
+    </tr>
+    <tr>
+      <td>Required data missing: no SCH, no PID, no appointment ID, no usable patient identifier, no start/end where status needs them, end before start, no Organization for an AIL-3.4 facility code (teams that reject, F5)</td>
+      <td><code class="language-plaintext highlighter-rouge">AE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">101^Required field missing</code></td>
+    </tr>
+    <tr>
+      <td>Invalid value: bad date-time (MSH-7 excepted), bad birth date, non-numeric / negative / infinite duration, unknown duration unit</td>
+      <td><code class="language-plaintext highlighter-rouge">AE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">102^Data type error</code></td>
+    </tr>
+    <tr>
+      <td>FHIR server unreachable or returns an error (including 412 multiple matches)</td>
+      <td><code class="language-plaintext highlighter-rouge">AE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">207^Application internal error</code></td>
+    </tr>
+    <tr>
+      <td>Any unexpected error in the adapter</td>
+      <td><code class="language-plaintext highlighter-rouge">AE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">207^Application internal error</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ERR-4 = <code class="language-plaintext highlighter-rouge">E</code>; ERR-8 carries a readable explanation, e.g. <code class="language-plaintext highlighter-rouge">PID-7: Invalid HL7 date 'UNKNOWN'</code>.</p>
+
+<p>These are <strong>warnings, not errors</strong>. The message is accepted (<code class="language-plaintext highlighter-rouge">AA</code>) and the warning is logged:</p>
+
+<ul>
+  <li>Invalid IHI, HPI-I or Medicare number (dropped or kept as local).</li>
+  <li>DVA number kept as local.</li>
+  <li>Missing family name, birth date or sex (data-absent rules).</li>
+  <li>AIP without a family name.</li>
+  <li>Unrecognised SCH-25.</li>
+  <li>Untranslated AIL-4 code.</li>
+  <li>Unrecognised PID-10.</li>
+  <li>Address that can't be normalised.</li>
+  <li>Empty duration units.</li>
+  <li>Unparseable MSH-7: the order check is skipped for that message.</li>
+  <li>Organization placeholder created (placeholder option).</li>
+</ul>
+
+<h2 id="9-test-scenarios-and-conformance-checklist">9. Test scenarios and conformance checklist</h2>
+
+<p>Run these against an empty server with only Organization <code class="language-plaintext highlighter-rouge">SIMHOSP</code> loaded (assumption A3). Send the messages in order by HTTP POST (or MLLP, if offered); the results below come from the reference implementation.</p>
+
+<h3 id="91-sample-messages">9.1 Sample messages</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01  MSH|^~\&amp;|PAS|SIMHOSP|SIU2FHIR|POC|20261007090000+1000||SIU^S12^SIU_S12|MSG0001|P|2.5
+    SCH|PLC1001^PAS|FIL2001^SCHED|||||FOLLOWUP^Follow-up^HL70276|Normal^Normal^HL70277|30|min|^^^20261014093000+1000^20261014100000+1000||||||||||||||Booked
+    PID|1||900001^^^SIMHOSP^MR~8003609900001239^^^AUSHIC^NI~29999999991^^^AUSHIC^MC||TESTPATIENT^ALICE^^^MS^^L||19800101|F||4^Neither Aboriginal nor Torres Strait Islander origin^AUSINDIGENOUS|1 Example Street^^BRISBANE^QLD^4000^AU||^PRN^PH^^^00^00000000~^NET^Internet^alice@example.org||en^English^ISO639
+    RGS|1|A
+    AIS|1|A|GPCONS^General consultation^LOCAL
+    AIL|1|A|OPD^CLINIC1^^SIMHOSP^^^^^Outpatient Clinic 1|CLIN^Clinic^LOCAL
+    AIP|1|A|8003619900004562^SMITH^JANE^^^DR^^^AUSHIC^^^^NPI|ATND^Attending^LOCAL
+
+02  As 01, except: MSH-7 20261007091000+1000, MSH-9 SIU^S13^SIU_S12, MSH-10 MSG0002, RGS|1|U,
+    SCH|PLC1001^PAS|FIL2001^SCHED||||PATREQ^Patient request^LOCAL|FOLLOWUP^Follow-up^HL70276||30|min|^^^20261015110000+1000^20261015113000+1000||||||||||||||Booked
+
+03  MSH|^~\&amp;|PAS|SIMHOSP|SIU2FHIR|POC|20261007092000+1000||SIU^S14^SIU_S12|MSG0003|P|2.5
+    SCH|PLC1001^PAS|FIL2001^SCHED|||||FOLLOWUP^Follow-up^HL70276||30|min|^^^20261015110000+1000^20261015113000+1000
+    NTE|1||Interpreter required (Mandarin)
+    PID  (as 01)
+    RGS|1|U
+    AIS, AIL  (as 01)
+    AIP|1|D|8003619900004562^SMITH^JANE^^^DR^^^AUSHIC^^^^NPI
+    AIP|2|A|2426621B^JONES^RAJ^^^DR^^^AUSHICPR|ATND^Attending^LOCAL
+
+04  MSH|^~\&amp;|PAS|SIMHOSP|SIU2FHIR|POC|20261007093000+1000||SIU^S15^SIU_S12|MSG0004|P|2.5
+    SCH|PLC1001^PAS|FIL2001^SCHED||||PATCANC^Patient cancelled^LOCAL|FOLLOWUP^Follow-up^HL70276||30|min|^^^20261015110000+1000^20261015113000+1000||||||||||||||Cancelled
+    PID, RGS|1|U, AIS, AIL  (as 03)
+    AIP|1|U|2426621B^JONES^RAJ^^^DR^^^AUSHICPR|ATND^Attending^LOCAL
+
+05  MSH|^~\&amp;|PAS|SIMHOSP|SIU2FHIR|POC|20261007094000+1000||SIU^S12^SIU_S12|MSG0005|P|2.5
+    SCH|PLC1002^PAS|FIL2002^SCHED|||||ROUTINE^Routine^HL70276
+    PID|1||900002^^^SIMHOSP^MR||TESTPATIENT^BOB^^^MR^^L||19751231|M
+    RGS|1|A
+    AIS|1|A|PHYSIO^Physiotherapy^LOCAL|20261016140000|||45|min
+    AIL|1|A|OPD^PHYSIO1^^SATELLITE^^^^^Physio Room 1
+
+06  MSH|^~\&amp;|PAS|SIMHOSP|SIU2FHIR|POC|20261007095000+1000||SIU^S12^SIU_S12|MSG0006|P|2.5
+    SCH|PLC1003^PAS|FIL2003^SCHED|||||||15|min|^^^20261017090000+1000^20261017091500+1000||||||||||||||Booked
+    PID|1||900003^^^SIMHOSP^MR~8003609900001230^^^AUSHIC^NI||^CHARLIE
+    RGS|1|A
+    AIS|1|A|GPCONS^General consultation^LOCAL
+    AIP|1|A|P9999^^ANON|ATND^Attending^LOCAL
+</code></pre></div></div>
+
+<p>The public <a href="https://github.com/healthinfoservices/siu-fhir-au-core">reference repository</a> holds each message as a complete file in its samples folder, with CR segment terminators.</p>
+
+<h3 id="92-expected-results">9.2 Expected results</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Send</th>
+      <th>ACK</th>
+      <th>Expected on the server</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TC-01</td>
+      <td>01 (S12)</td>
+      <td>AA</td>
+      <td>Appointment FIL2001 <code class="language-plaintext highlighter-rouge">booked</code>, 2026-10-14 09:30–10:00 +10:00, 30 min. Patient 900001 with MRN (<code class="language-plaintext highlighter-rouge">…/mrn/SIMHOSP</code>), IHI, Medicare, Indigenous status <code class="language-plaintext highlighter-rouge">4</code>, language <code class="language-plaintext highlighter-rouge">en</code>. Practitioner Dr Jane Smith with HPI-I. Location <code class="language-plaintext highlighter-rouge">SIMHOSP/OPD/CLINIC1</code>: <code class="language-plaintext highlighter-rouge">physicalType</code> <code class="language-plaintext highlighter-rouge">ro</code>, managed by Simulated Hospital, address copied. Role <code class="language-plaintext highlighter-rouge">ATND</code> in v3-ParticipationType</td>
+    </tr>
+    <tr>
+      <td>TC-02</td>
+      <td>02 (S13)</td>
+      <td>AA</td>
+      <td>Same Appointment, now 2026-10-15 11:00–11:30; still <code class="language-plaintext highlighter-rouge">booked</code>; no <code class="language-plaintext highlighter-rouge">cancelationReason</code></td>
+    </tr>
+    <tr>
+      <td>TC-03</td>
+      <td>03 (S14)</td>
+      <td>AA</td>
+      <td>Dr Smith removed (action <code class="language-plaintext highlighter-rouge">D</code>); Dr Raj Jones added with Medicare provider number 2426621B, type <code class="language-plaintext highlighter-rouge">UPIN</code>; <code class="language-plaintext highlighter-rouge">comment</code> "Interpreter required (Mandarin)"; still <code class="language-plaintext highlighter-rouge">booked</code></td>
+    </tr>
+    <tr>
+      <td>TC-04</td>
+      <td>04 (S15)</td>
+      <td>AA</td>
+      <td><code class="language-plaintext highlighter-rouge">cancelled</code>, <code class="language-plaintext highlighter-rouge">cancelationReason</code> "Patient cancelled"</td>
+    </tr>
+    <tr>
+      <td>TC-05</td>
+      <td>01 again</td>
+      <td>AA</td>
+      <td>Ignored as stale (MSH-7 earlier than stored); FIL2001 stays <code class="language-plaintext highlighter-rouge">cancelled</code></td>
+    </tr>
+    <tr>
+      <td>TC-06</td>
+      <td>05 (S12)</td>
+      <td>AA</td>
+      <td>Facility SATELLITE not on server → one placeholder Organization (tag <code class="language-plaintext highlighter-rouge">placeholder</code>). Location <code class="language-plaintext highlighter-rouge">SATELLITE/OPD/PHYSIO1</code> with no address. FIL2002 2026-10-16 14:00–14:45 +10:00 (default time zone, AIS timing). Teams that reject instead: AE with ERR-3 101, and nothing from message 05 is written</td>
+    </tr>
+    <tr>
+      <td>TC-07</td>
+      <td>06 (S12)</td>
+      <td>AA</td>
+      <td>Patient 900003: IHI dropped (fails Luhn), <code class="language-plaintext highlighter-rouge">gender</code> <code class="language-plaintext highlighter-rouge">unknown</code>, <code class="language-plaintext highlighter-rouge">_birthDate</code> data-absent-reason, names = [given CHARLIE] + [data-absent-reason only]. No Practitioner; participant display "ANON". FIL2003 09:00–09:15</td>
+    </tr>
+    <tr>
+      <td>TC-08</td>
+      <td>Any sample, each message twice</td>
+      <td>AA</td>
+      <td>No duplicate resources</td>
+    </tr>
+    <tr>
+      <td>TC-09</td>
+      <td>01 with MSH-9 <code class="language-plaintext highlighter-rouge">ADT^A01</code></td>
+      <td>AR</td>
+      <td>ERR-3 200; nothing written</td>
+    </tr>
+    <tr>
+      <td>TC-10</td>
+      <td>01 with MSH-9 <code class="language-plaintext highlighter-rouge">SIU^S26</code></td>
+      <td>AR</td>
+      <td>ERR-3 201</td>
+    </tr>
+    <tr>
+      <td>TC-11</td>
+      <td>01 with PID-7 <code class="language-plaintext highlighter-rouge">UNKNOWN</code></td>
+      <td>AE</td>
+      <td>ERR-3 102; nothing written</td>
+    </tr>
+    <tr>
+      <td>TC-12</td>
+      <td>06 with SCH-9, SCH-10 and SCH-11 emptied</td>
+      <td>AE</td>
+      <td>ERR-3 101 (no start/end for a <code class="language-plaintext highlighter-rouge">booked</code> appointment)</td>
+    </tr>
+    <tr>
+      <td>TC-13</td>
+      <td>On a fresh server with SIMHOSP loaded, first load a Patient with MRN 900001 (system …/mrn/SIMHOSP) named Alicia Testpatient-Smith, and a Practitioner with HPI-I 8003619900004562 named Dr Jane Curated; then send 01</td>
+      <td>AA</td>
+      <td>Both kept exactly as loaded; no second Patient or Practitioner. The Appointment references them, with their names as actor display</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After TC-01 to TC-08 the server holds 3 Patients, 2 Practitioners, 2 Locations, 2 Organizations (SIMHOSP and the SATELLITE placeholder) and 3 Appointments. With the reject option: 2 Patients, 2 Practitioners, 1 Location, 1 Organization and 2 Appointments.</p>
+
+<h3 id="93-conformance-checklist">9.3 Conformance checklist</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />TC-01 to TC-13 give the expected ACK and server state</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Patient, Practitioner, Location and Organization validate against AU Core 2.0.0; Appointment against SIU AU Appointment</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Existing Organizations, Patients and Practitioners are never modified (TC-13)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />One ACK per message over HTTP (and MLLP, if offered), including on unexpected errors</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Delimiters read from MSH, escapes decoded</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Warnings logged for every case listed in section 8</li>
+</ul>
+
+<h2 id="10-open-questions-and-references">10. Open questions and references</h2>
+
+<h3 id="101-known-deviations-and-open-items">10.1 Known deviations and open items</h3>
+
+<p>These are deliberate choices for the track or are still unconfirmed. Raise them at the track kick-off rather than changing behaviour on your own.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Item</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>SCH-7 → <code class="language-plaintext highlighter-rouge">appointmentType</code> (SCH-8 unmapped). The HL7 v2-to-FHIR IG maps SCH-7 → <code class="language-plaintext highlighter-rouge">reasonCode</code> and SCH-8 → <code class="language-plaintext highlighter-rouge">appointmentType</code></td>
+      <td>Track choice; FHIR R4 binds <code class="language-plaintext highlighter-rouge">appointmentType</code> to table 0276, SCH-7's table</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Resource-segment timing rolled up into <code class="language-plaintext highlighter-rouge">Appointment.start</code>/<code class="language-plaintext highlighter-rouge">end</code>; the v2-to-FHIR IG uses <code class="language-plaintext highlighter-rouge">participant.period</code></td>
+      <td>Track simplification</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Table 0278 <code class="language-plaintext highlighter-rouge">Started</code> → <code class="language-plaintext highlighter-rouge">arrived</code> (IG: <code class="language-plaintext highlighter-rouge">checked-in</code>); <code class="language-plaintext highlighter-rouge">Blocked</code>/<code class="language-plaintext highlighter-rouge">Overbook</code> → <code class="language-plaintext highlighter-rouge">booked</code> (IG: unmapped)</td>
+      <td>Track choice</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Australian v2 identifier conventions (A5) and PID-10 for Indigenous status</td>
+      <td>Confirm with real senders</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Code values not yet checked against the published sets: Australian States and Territories, Indigenous status codes, location-physical-type <code class="language-plaintext highlighter-rouge">bd</code>/<code class="language-plaintext highlighter-rouge">ro</code>/<code class="language-plaintext highlighter-rouge">wa</code></td>
+      <td>Unverified</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Canonical URLs of AU Core Practitioner, Location and Organization assumed from the confirmed AU Core Patient pattern</td>
+      <td>Unverified</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code class="language-plaintext highlighter-rouge">example.org</code> identifier systems and the IG canonical are placeholders</td>
+      <td>By design for the track</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The track IG and reference implementation have not yet been validated with the HL7 IG Publisher or against a running HAPI server</td>
+      <td>First build pending</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Existing Patients and Practitioners are never updated, so demographic changes in later messages are not stored. Patients are matched on the first usable PID-3 identifier only, so a server Patient without that identifier gets a duplicate</td>
+      <td>Track choice</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>HTTP response body format (JSON with an ack member, or the plain-text ACK) is not fixed</td>
+      <td>Team's choice</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="102-references">10.2 References</h3>
+
+<ul>
+  <li><a href="https://hl7.org.au/fhir/core/">AU Core 2.0.0</a> and its <a href="https://hl7.org.au/fhir/core/general-requirements.html">General Requirements</a> (missing data, Must Support)</li>
+  <li><a href="https://hl7.org.au/fhir/core/StructureDefinition-au-core-patient.html">AU Core Patient</a>, <a href="https://hl7.org.au/fhir/core/StructureDefinition-au-core-practitioner.html">Practitioner</a>, <a href="https://hl7.org.au/fhir/core/StructureDefinition-au-core-location.html">Location</a>, <a href="https://hl7.org.au/fhir/core/StructureDefinition-au-core-organization.html">Organization</a></li>
+  <li>AU Base 6.0.0: <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-au-ihi.html">IHI</a>, <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-au-medicarecardnumber.html">Medicare card number</a>, <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-au-hpii.html">HPI-I</a>, <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-au-medicareprovidernumber.html">Medicare provider number</a>, <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-au-dvanumber.html">DVA number</a>, <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-au-address.html">Australian Address</a>, <a href="https://hl7.org.au/fhir/6.0.0/StructureDefinition-indigenous-status.html">Indigenous Status extension</a></li>
+  <li><a href="https://hl7.org/fhir/R4/appointment-definitions.html">FHIR R4 Appointment</a> and <a href="https://hl7.org/fhir/R4/valueset-appointmentstatus.html">AppointmentStatus</a>; <a href="https://hl7.org/fhir/R4/valueset-encounter-participant-type.html">participant type value set</a></li>
+  <li>HL7 v2 tables: <a href="https://hl7.org/fhir/R4/v2/0278/index.html">0278</a>, <a href="https://hl7.org/fhir/R4/v2/0276/index.html">0276</a>, <a href="https://hl7.org/fhir/R4/v2/0203/index.html">0203</a></li>
+  <li>HL7 v2.5 <a href="https://www.hl7.eu/HL7v2x/v25/std25/ch10.html">Chapter 10, Scheduling</a> (SCH, AIS, AIG, AIL, AIP; SIU_S12 structure)</li>
+  <li>HL7 v2-to-FHIR IG: <a href="https://hl7.org/fhir/uv/v2mappings/ConceptMap-segment-sch-to-appointment.html">SCH → Appointment</a>, <a href="https://hl7.org/fhir/uv/v2mappings/ConceptMap-table-hl70278-to-appointmentstatus.html">0278 → AppointmentStatus</a></li>
+  <li><a href="https://healthintersections.com.au/2020/07/29/representation-of-common-australian-identifiers-in-v2-and-cda.html">Representation of common Australian identifiers in v2 and CDA</a> (source for A5)</li>
+  <li>Reference implementation and track IG: <code class="language-plaintext highlighter-rouge">siu-fhir-au-core</code> public GitHub repository <a href="https://github.com/healthinfoservices/siu-fhir-au-core">github.com/healthinfoservices/siu-fhir-au-core</a>: service, sample messages, FSH IG, seed Organizations. The track IG is published at <a href="https://healthinfoservices.net/efiq-track2b/index.html">healthinfoservices.net/efiq-track2b</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="">SIU2FHIR PoC</a>.  Package example.fhir.siu2fhir.au#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Oct 30, 2026 02:04+0000">2026-10-30</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

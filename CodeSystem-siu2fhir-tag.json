@@ -1,0 +1,32 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "siu2fhir-tag",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem siu2fhir-tag</b></p><a name=\"siu2fhir-tag\"> </a><a name=\"hcsiu2fhir-tag\"> </a><p>This case-sensitive code system <code>http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag</code> defines the following code:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">placeholder<a name=\"siu2fhir-tag-placeholder\"> </a></td><td>Placeholder</td><td>Created from an SIU message because no matching resource existed on the FHIR server. Expected to be curated (name, address, identifiers) by an administrator; the service never overwrites it.</td></tr></table></div>"
+  },
+  "url" : "http://example.org/fhir/siu2fhir-au/CodeSystem/siu2fhir-tag",
+  "version" : "0.1.0",
+  "name" : "SIU2FHIRTag",
+  "title" : "SIU2FHIR Resource Tags",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-30T02:04:31+00:00",
+  "publisher" : "SIU2FHIR PoC",
+  "description" : "Tags (meta.tag) the ingestion service puts on resources it creates.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "AU",
+      "display" : "Australia"
+    }]
+  }],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 1,
+  "concept" : [{
+    "code" : "placeholder",
+    "display" : "Placeholder",
+    "definition" : "Created from an SIU message because no matching resource existed on the FHIR server. Expected to be curated (name, address, identifiers) by an administrator; the service never overwrites it."
+  }]
+}

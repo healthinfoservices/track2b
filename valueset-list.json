@@ -1,0 +1,11 @@
+{
+  "codeSystems" : [{
+    "url" : "http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "AppointmentIdentifierType",
+    "title" : "Appointment Identifier Type",
+    "description" : "Identifier types used on SIU Appointments: filler (SCH-2) and placer (SCH-1) appointment IDs.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0203"]
+  }]
+}

@@ -1,0 +1,2 @@
+URL,Version,Status,OIDs,Name,Title,Description,Uses,Used,Sources
+http://example.org/fhir/siu2fhir-au/ValueSet/appointment-identifier-type,0.1.0,draft,,AppointmentIdentifierType,Appointment Identifier Type,"Identifier types used on SIU Appointments: filler (SCH-2) and placer (SCH-1) appointment IDs.",,"THO (V2)"

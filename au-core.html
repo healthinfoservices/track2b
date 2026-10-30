@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>AU Core Conformance - HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  <img alt="Australia flag" src="assets/images/aus.svg" height="16" title="Australia"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="architecture.html">Architecture</a>
+  </li>
+  <li>
+    <a href="au-core.html">AU Core</a>
+  </li>
+  <li>
+    <a href="adapter-specification.html">Adapter Specification</a>
+  </li>
+  <li>
+    <a href="mapping.html">Mapping</a>
+  </li>
+  <li>
+    <a href="messaging.html">Processing</a>
+  </li>
+  <li>
+    <a href="lifecycle.html">Worked Example</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">More
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="architecture.html">Architecture</a>
+      </li>
+      <li>
+        <a href="registry.html">Local Registry</a>
+      </li>
+      <li>
+        <a href="building.html">Building This Guide</a>
+      </li>
+      <li>
+        <a href="open-issues.html">Open Issues</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>AU Core Conformance</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">HL7 v2 SIU to FHIR Appointment - AU Core (Proof of Concept) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='http://example.org/fhir/siu2fhir-au/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>AU Core Conformance</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#missing-data" id="markdown-toc-missing-data">Missing data</a></li>
+  <li><a href="#national-identifiers" id="markdown-toc-national-identifiers">National identifiers</a></li>
+  <li><a href="#must-support-elements-populated-when-known" id="markdown-toc-must-support-elements-populated-when-known">Must Support elements populated when known</a></li>
+  <li><a href="#appointment" id="markdown-toc-appointment">Appointment</a></li>
+</ul>
+
+</div>
+<p>This page lists what the service does differently to meet AU Core 2.0.0, compared with a plain FHIR R4 mapping of the same SIU messages.</p>
+
+<h3 id="missing-data">Missing data</h3>
+
+<p>AU Core requires some elements even when the source doesn't know the value. Coded elements use the value set's own <code class="language-plaintext highlighter-rouge">unknown</code> code; other elements carry the <a href="http://hl7.org/fhir/R4/extension-data-absent-reason.html">data-absent-reason</a> extension with code <code class="language-plaintext highlighter-rouge">unknown</code>.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>AU Core rule</th>
+      <th>When PID is missing it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.gender</code></td>
+      <td>1..1</td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.birthDate</code></td>
+      <td>1..1</td>
+      <td><code class="language-plaintext highlighter-rouge">_birthDate</code> with data-absent-reason</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.name</code></td>
+      <td>1..*, au-core-pat-02 (family name xor data-absent-reason), au-core-pat-03</td>
+      <td>An extra name containing only data-absent-reason</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.identifier</code></td>
+      <td>au-core-pat-01 (at least one identifier with system and value)</td>
+      <td>Message rejected with <code class="language-plaintext highlighter-rouge">AE</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.name.family</code></td>
+      <td>1..1</td>
+      <td>No Practitioner is created; the appointment gets a display-only participant</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="national-identifiers">National identifiers</h3>
+
+<p>IHI, Medicare card number, HPI-I and Medicare provider number are mapped to the AU Base identifier profiles, with their fixed systems and type codes.
+IHI and HPI-I values are checked (16 digits, prefix, Luhn) and Medicare numbers must be 10 or 11 digits. A value failing its check is dropped (IHI, Medicare) or kept as a local identifier (HPI-I), with a warning, so that an invalid number never reaches the server under a national system.</p>
+
+<p>MRNs (PID-3.5 <code class="language-plaintext highlighter-rouge">MR</code>) are sent as plain identifiers with the system <code class="language-plaintext highlighter-rouge">http://example.org/fhir/sid/mrn/</code> + PID-3.4 and no assigner, so they don't claim the AU Base Medical Record Number profile (which needs <code class="language-plaintext highlighter-rouge">assigner.display</code>). That is allowed by AU Core Patient.</p>
+
+<p>The service recognises the national identifiers from Australian HL7 v2 conventions: IHI as <code class="language-plaintext highlighter-rouge">^^^AUSHIC^NI</code>, Medicare as <code class="language-plaintext highlighter-rouge">^^^AUSHIC^MC</code>, HPI-I as XCN.13 <code class="language-plaintext highlighter-rouge">NPI</code>, Medicare provider number as XCN.9 <code class="language-plaintext highlighter-rouge">AUSHICPR</code>. These conventions should be confirmed with the sending system (see <a href="open-issues.html">Open Issues</a>).</p>
+
+<h3 id="must-support-elements-populated-when-known">Must Support elements populated when known</h3>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Patient <code class="language-plaintext highlighter-rouge">indigenousStatus</code> extension</td>
+      <td>PID-10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.communication.language</code></td>
+      <td>PID-15</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.name.text</code></td>
+      <td>Built from PID-5</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient.address</code> (Australian Address)</td>
+      <td>PID-11, normalised</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Location.type</code></td>
+      <td>AIL-4, translated via the registry</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Location.physicalType</code></td>
+      <td>Derived from AIL-3 (bed / room / point of care)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Location.managingOrganization</code> → AU Core Organization</td>
+      <td>AIL-3.4 facility, looked up on the FHIR server (placeholder if missing)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Location.address</code></td>
+      <td>Copied from that Organization's first address</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Must Support elements with no SIU v2.5 source (for example gender identity and pronouns) are left out, as AU Core's <em>populate-if-known</em> obligation allows.</p>
+
+<h3 id="appointment">Appointment</h3>
+
+<p>There is no AU Core Appointment profile. <a href="StructureDefinition-siu-au-appointment.html">SIU AU Appointment</a> constrains <code class="language-plaintext highlighter-rouge">participant.actor</code> to AU Core Patient, Practitioner, PractitionerRole and Location.
+Known participant role codes (such as <code class="language-plaintext highlighter-rouge">ATND</code>) are sent with the <code class="language-plaintext highlighter-rouge">v3-ParticipationType</code> code system that the participant-type value set uses.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="">SIU2FHIR PoC</a>.  Package example.fhir.siu2fhir.au#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Oct 30, 2026 02:04+0000">2026-10-30</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
